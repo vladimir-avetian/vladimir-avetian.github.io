@@ -8,10 +8,10 @@ main:
   # - title: "Sample Collections"
   #   url: /collection-archive/
    - title: "Research"
-     url: https://mmistakes.github.io/minimal-mistakes/about/
+     url: /research/
    - title: "Teaching"
-     url: /year-archive/
+     url: /teaching/
    - title: "CV"
-     url: /collection-archive/
+     url: /cv/
   # - title: "Sitemap"
   #   url: /sitemap/
