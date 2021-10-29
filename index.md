@@ -20,4 +20,4 @@ vladimir.avetian@sciencespo.fr
 
 My CV is available here
 
-#{% include feature_row %}
+{% not include feature_row %}
