@@ -5,8 +5,8 @@
      url: https://mmistakes.github.io/minimal-mistakes/about/
    - title: "Teaching"
      url: /year-archive/
-   - title: "CV"
-     url: /collection-archive/
+    #  - title: "CV"
+    #    url: /collection-archive/
      - title: "Job Market Paper"
      url: "slavs_jmp.pdf"
   # - title: "Sitemap"
