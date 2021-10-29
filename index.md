@@ -56,8 +56,7 @@ I am on the job market and will be available for interview at the European Job M
 
 Contact:
 
-vladimir.avetian@sciencespo.fr
-28 Rue des Saint-Pères, 75007, Paris, France
-My CV is available soon
+*vladimir.avetian@sciencespo.fr
+*28 Rue des Saint-Pères, 75007, Paris, France
+*My CV is available here
 
-#{% include feature_row %}
