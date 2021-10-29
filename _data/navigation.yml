@@ -1,7 +1,9 @@
 # main links
 main:
-  - title: "Job Market Paper"
-    url: docs/slavs.pdf
+  #- title: "Job Market Paper"
+  #  url: "docs/slavs_jmp.pdf"
+    #<a href="vladimir-avetian.github.io/docs/slavs_jmp.pdf" 
+
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
