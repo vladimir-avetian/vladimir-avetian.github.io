@@ -1,8 +1,8 @@
 main:
    - title: "Job Market Paper"
      url: "slavs_jmp.pdf"
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+   - title: "About"
+     url: "docs/_pages/about.md"
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
