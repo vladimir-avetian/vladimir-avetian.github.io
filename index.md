@@ -1,7 +1,7 @@
 ---
 permalink: /
-title: ""
-excerpt: "About me"
+title: "About"
+excerpt: "About"
 author_profile: true
 redirect_from:
   - /about/
@@ -20,4 +20,4 @@ vladimir.avetian@sciencespo.fr
 
 My CV is available here
 
-{% not include feature_row %}
+{% exclude feature_row %}
