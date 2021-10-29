@@ -2,7 +2,7 @@ main:
    - title: "Job Market Paper"
      url: "slavs_jmp.pdf"
    - title: "About"
-     url: "/_pages/about.md"
+     url: "about.html"
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
