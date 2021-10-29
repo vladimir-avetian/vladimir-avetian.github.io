@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "Job Market Paper"
-    url: <a href="vladimir-avetian.github.io/docs/slavs_jmp.pdf"target="_blank">PDF.</a>
+    url: "docs/slavs_jmp.pdf"
     #<a href="vladimir-avetian.github.io/docs/slavs_jmp.pdf" 
 
   # - title: "About"
