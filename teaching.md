@@ -11,8 +11,14 @@ redirect_from:
 
 ## Teaching
 
-### 2021-2022
+### 2020, 2021
 
-Mathematics for Social Sciences
+Lecturer of 'Quantitative and Mathematical Methods for Social Sciences'
 
+### 2019, 2021, 2022
 
+Lecturer of 'Statistics for Social Scientists'
+
+### 2020, 2021
+
+TA of 'Populism and Autocracy' 
