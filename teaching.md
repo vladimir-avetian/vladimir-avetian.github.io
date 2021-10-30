@@ -9,8 +9,6 @@ redirect_from:
   - /teaching.html
 ---
 
-## Teaching
-
 ### Statistics for Social Scientists
 _2019, 2021, 2022_ - Lecturer
 
