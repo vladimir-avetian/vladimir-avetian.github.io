@@ -106,7 +106,7 @@ author:
   avatar           : "/assets/images/JMC_2021_Vladimir_AVETIAN_250.jpeg"
   bio              : "**PhD** Candidate at **Sciences Po**"
   location         : "Paris, France"
-  email            :
+  email            : "mailto:vladimir.avetian@sciencespo.fr"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
