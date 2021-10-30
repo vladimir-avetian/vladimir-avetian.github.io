@@ -1,5 +1,5 @@
 main:
-   - title: "Download Job Market Paper"
+   - title: "Job Market Paper"
      url: "slavs_jmp.pdf"
    - title: "Teaching"
      url: "teaching.md"
