@@ -2,7 +2,7 @@ main:
    - title: "Job Market Paper"
      url: "slavs_jmp.pdf"
    - title: "Teaching"
-     url: "teaching.md"
+     url: "/teaching"
    - title: "Research"
      url: "research.md"
    #- title: "About"
