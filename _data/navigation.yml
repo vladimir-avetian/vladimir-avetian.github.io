@@ -1,12 +1,12 @@
 main:
-   - title: "Job Market Paper"
-     url: "slavs_jmp.pdf"
+   #- title: "Job Market Paper"
+   #  url: "slavs_jmp.pdf"
    - title: "Teaching"
      url: "/teaching"
    - title: "Research"
      url: "/research"
-   #- title: "About"
-   #  url: "about.html"
+   - title: "About me"
+     url: "/"
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
