@@ -11,7 +11,7 @@ redirect_from:
 
 I am a PhD candidate in Economics at Sciences Po supervised by [Sergeï Guriev](https://sites.google.com/site/sguriev/). 
 
-My research interests are Political Economy are Urban Economics.
+My research interests are Political Economy and Urban Economics.
 
 I am on the job market this year. 
 
