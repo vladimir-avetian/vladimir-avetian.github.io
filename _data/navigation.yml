@@ -1,14 +1,14 @@
 main:
    - title: "Download Job Market Paper"
      url: "slavs_jmp.pdf"
+     - title: "Research"
+    url: "research.md"
    #- title: "About"
    #  url: "about.html"
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
-  #   url: /collection-archive/
-   - title: "Research"
-    url: "research.md"
+  #   url: /collection-archive
  #  - title: "Teaching"
   #   url: /teaching/
   # - title: "CV"
