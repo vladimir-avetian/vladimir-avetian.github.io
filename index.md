@@ -15,4 +15,4 @@ My research interests are Political Economy are Urban Economics.
 
 I am on the job market this year. 
 
-My CV is available [here](pdfs/cv.pdf)
+My CV is available [here](pdfs/cv.pdf).
