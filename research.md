@@ -1,7 +1,7 @@
 ---
 layout: single
 permalink: /
-title: "About"
+title: "Research"
 excerpt: "About"
 author_profile: true
 redirect_from:
