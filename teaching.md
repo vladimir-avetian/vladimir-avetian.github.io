@@ -11,14 +11,20 @@ redirect_from:
 
 ## Teaching
 
-### 2020, 2021
+### Statistics for Social Scientists
 
-Lecturer of 'Quantitative and Mathematical Methods for Social Sciences'
+_2019, 2021, 2022_
 
-### 2019, 2021, 2022
+Lecturer
 
-Lecturer of 'Statistics for Social Scientists'
+### Quantitative and Mathematical Methods for Social Sciences
 
-### 2020, 2021
+_2020, 2021_
 
-TA of 'Populism and Autocracy' 
+Lecturer
+
+### Populism and Autocracy
+
+_2020, 2021_
+
+TA of course given by Prof. Sergeï Guriev
