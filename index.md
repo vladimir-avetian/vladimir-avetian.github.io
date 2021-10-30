@@ -16,3 +16,11 @@ My research interests are Political Economy are Urban Economics.
 I am on the job market this year. 
 
 My CV is available [here](pdfs/cv.pdf).
+
+
+
+# Yes! My job market paper is finally here! 
+
+# [Consider the Slavs: Overt Discrimination and Racial Disparities in the Rental Housing](pdfs/slavs_jmp.pdf) 
+
+You can also check out the visual [summary](http://jmp-consider-the-slavs.tilda.ws/) of my paper for the general audience.
