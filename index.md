@@ -9,9 +9,11 @@ redirect_from:
   - /about.html
 ---
 
-I am a PhD candidate in Economics at Sciences Po Paris, under the supervision of Sergei Guriev. My research interests are Political Economy are Urban Economics.
+I am a PhD candidate in Economics at Sciences Po Paris, under the supervision of Sergei Guriev. 
 
-I am on the job market and will be available for interview at the European Job Market from 15-18 December 2021, and at the AEA meetings starting January 3 2022.
+My research interests are Political Economy are Urban Economics.
+
+I am on the job market this year. 
 
 My CV is available [here](http://disqus.com)
 
