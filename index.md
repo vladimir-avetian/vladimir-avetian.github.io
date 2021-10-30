@@ -9,7 +9,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a PhD candidate in Economics at Sciences Po Paris, under the supervision of Sergei Guriev. 
+I am a PhD candidate in Economics at Sciences Po Paris, under the supervision of [Sergeï Guriev](https://sites.google.com/site/sguriev/). 
 
 My research interests are Political Economy are Urban Economics.
 
