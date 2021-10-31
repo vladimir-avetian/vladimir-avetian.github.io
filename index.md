@@ -19,4 +19,4 @@ My CV is available [here](pdfs/cv.pdf).
 
 ## Yes! My job market paper is finally [here!](pdfs/slavs_jmp.pdf) 
 
-You can also check out --> [the visual summary](http://jmp-consider-the-slavs.tilda.ws/) <-- of my paper intended for the general audience.
+You can also check out --> [the visual summary](http://jmp-consider-the-slav.tilda.ws/) <-- of my paper intended for the general audience.
