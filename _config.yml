@@ -20,7 +20,7 @@ title                    : "Vladimir Avetian"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Vladimir Avetian"
-description              : "An amazing website."
+description              : "Academic page"
 url                      : "https://vladimir-avetian.github.io"
 baseurl                  : #"/_pages"
 repository               : "vladimir-avetian/vladimir-avetian.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
