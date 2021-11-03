@@ -107,6 +107,7 @@ author:
   bio              : "**PhD** Candidate at **Sciences Po**"
   location         : "Paris, France"
   email            : "mailto:vladimir.avetian@sciencespo.fr"
+    links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       #url: "mailto:vladimir.avetian@sciencespo.fr"
