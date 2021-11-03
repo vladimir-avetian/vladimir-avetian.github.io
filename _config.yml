@@ -79,7 +79,7 @@ baidu_site_verification  :
 
 # Social Sharing
 twitter:
-  username               :
+  username               : "AvetianVladimir"
 facebook:
   username               :
   app_id                 :
@@ -107,7 +107,8 @@ author:
   bio              : "**PhD** Candidate at **Sciences Po**"
   location         : "Paris, France"
   email            : "mailto:vladimir.avetian@sciencespo.fr"
-    links:
+  twitter          : "AvetianVladimir"
+  links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       #url: "mailto:vladimir.avetian@sciencespo.fr"
