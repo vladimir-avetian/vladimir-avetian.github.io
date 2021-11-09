@@ -17,4 +17,4 @@ I am on the job market this year.
 
 My CV is available [here](pdfs/cv.pdf).
 
-## My job market paper is finally [here!](pdfs/slavs_jmp.pdf) 
+## My job market paper is [here!](pdfs/slavs_jmp.pdf) 
