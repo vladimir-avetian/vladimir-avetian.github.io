@@ -10,7 +10,7 @@ redirect_from:
 ---
 
 
-### Consider the Slavs: Overt Discrimination and Racial Disparities in the Rental Housing 
+### Consider the Slavs: Overt Discrimination and Racial Disparities in Rental Housing 
 _Job Market Paper_ - [[Draft](pdfs/slavs_jmp.pdf)], [[Visual Summary for General Audience(soon)]]
 
 
