@@ -11,7 +11,7 @@ redirect_from:
 
 
 ### Consider the Slavs: Overt Discrimination and Racial Disparities in Rental Housing 
-_Job Market Paper_ - [[Draft](pdfs/slavs_jmp.pdf)], [[Visual Summary for General Audience(soon)]]
+_Job Market Paper_ - [[Draft](pdfs/slavs_jmp.pdf)], [Non-technical [summary!](http://jmp-consider-the-slavs.tilda.ws/)]
 
 
 ### Going Viral in a Pandemic: Social Media and Allyship in the Black Lives Matter Movement 
