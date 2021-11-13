@@ -19,7 +19,7 @@ _Job Market Paper_ - [[Draft](pdfs/slavs_jmp.pdf)], [[Non-technical summary!](ht
 
 [[Draft](pdfs/Black_Lives_Matter_and_COVID_19.pdf)]
 
-### Urban Amenities and Tourism: Evidence from the Worst Year in Tourism History 
+### Urban Amenities and Tourism: Evidence from TripAdvisor
 (with [Stefan Pauly](https://stefanpauly.net/))
 
 [[Slides](pdfs/tourism_slides.pdf)]
