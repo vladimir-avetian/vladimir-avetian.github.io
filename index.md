@@ -17,6 +17,6 @@ I am on the job market this year.
 
 My CV is available [here](pdfs/cv.pdf).
 
-## My job market paper is [here](pdfs/slavs_jmp.pdf) 
+## My job market paper is [here](slavs_jmp.pdf) 
 
 ### You can also check out non-technical [summary](http://jmp-consider-the-slavs.tilda.ws/) of my job market paper!
