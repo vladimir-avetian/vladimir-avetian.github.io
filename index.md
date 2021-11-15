@@ -13,7 +13,7 @@ I am a PhD candidate in Economics at Sciences Po supervised by [Sergeï Guriev](
 
 My research interests are Political Economy and Urban Economics.
 
-I am on the job market this year. 
+I am on the job market this year and will be available for interview at the European Job Market and at the AEA meetings.
 
 My CV is available [here](pdfs/cv.pdf).
 
