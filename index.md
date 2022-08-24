@@ -9,11 +9,9 @@ redirect_from:
   - /about.html
 ---
 
-I am a PhD candidate in Economics at Sciences Po supervised by [Sergeï Guriev](https://sites.google.com/site/sguriev/). 
+I am a postdoctoral fellow at Université Dauphine-Paris. Previously I obtained my PhD in Economics at Sciences Po under supervision of [Sergeï Guriev](https://sites.google.com/site/sguriev/). 
 
 My research interests are Political Economy and Urban Economics.
-
-I am on the job market this year and will be available for interview at the European Job Market and at the AEA meetings.
 
 My CV is available [here](pdfs/cv.pdf).
 
