@@ -9,12 +9,10 @@ redirect_from:
   - /about.html
 ---
 
-I am a postdoctoral fellow at Université Dauphine-Paris. Previously I obtained my PhD in Economics at Sciences Po under supervision of [Sergeï Guriev](https://sites.google.com/site/sguriev/). 
+I am a Postdoctoral Scholar at the «Governance and Regulation» Chair of the University Paris-Dauphine - PSL. I recieved my PhD in Economics from Sciences Po under supervision of [Sergeï Guriev](https://sites.google.com/site/sguriev/). 
 
-My research interests are Political Economy and Urban Economics.
+My research interests are Applied Microeconomics, Political Economy and Urban Economics.
 
 My CV is available [here](pdfs/cv.pdf).
 
-## My job market paper is [here](slavs_jmp.pdf) 
-
-### You can also check out non-technical [summary](http://jmp-consider-the-slavs.tilda.ws/) of my job market paper!
+### You can check out non-technical [summary](http://jmp-consider-the-slavs.tilda.ws/) of my job market paper!
