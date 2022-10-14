@@ -9,7 +9,7 @@ redirect_from:
   - /research.html
 ---
 
-#Working papers
+# Working papers
 
 * Consider the Slavs: Overt Discrimination and Racial Disparities in Rental Housing [[Visual summary!](http://jmp-consider-the-slavs.tilda.ws/)]
 
