@@ -14,8 +14,8 @@ redirect_from:
 
 
 * Going Viral in a Pandemic: Social Media and Allyship in the Black Lives Matter Movement 
-(with [Annalí Casanueva Artís](https://www.parisschoolofeconomics.eu/fr/casanueva-artis-annali-mireia/), [Sulin Sardoschau](https://sites.google.com/view/sulinsardoschau/home) and [Kritika Saxena](https://www.kritikasaxena.com/))
+_(with [Annalí Casanueva Artís](https://www.parisschoolofeconomics.eu/fr/casanueva-artis-annali-mireia/), [Sulin Sardoschau](https://sites.google.com/view/sulinsardoschau/home) and [Kritika Saxena](https://www.kritikasaxena.com/))_
 
 
 * Urban Amenities and Tourism: Evidence from TripAdvisor
-(with [Stefan Pauly](https://stefanpauly.net/))
+_(with [Stefan Pauly](https://stefanpauly.net/))_
