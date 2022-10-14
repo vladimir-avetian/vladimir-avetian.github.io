@@ -1,7 +1,7 @@
 ---
 layout: single
 permalink: /research
-title: "Research"
+title: ""
 excerpt: "About"
 author_profile: true
 redirect_from:
@@ -9,6 +9,7 @@ redirect_from:
   - /research.html
 ---
 
+#Working papers
 
 * Consider the Slavs: Overt Discrimination and Racial Disparities in Rental Housing [[Visual summary!](http://jmp-consider-the-slavs.tilda.ws/)]
 
