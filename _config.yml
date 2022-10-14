@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -104,9 +104,9 @@ analytics:
 author:
   name             : "Vladimir Avetian"
   avatar           : "/assets/images/JMC_2021_Vladimir_AVETIAN_250.jpeg"
-  bio              : "**PhD** Candidate at **Sciences Po**"
+  bio              : "**Postdoc** at **University Paris-Dauphine - PSL**"
   location         : "Paris, France"
-  email            : "mailto:vladimir.avetian@sciencespo.fr"
+  email            : "mailto:vl.avetyan@gmail.com"
   twitter          : "AvetianVladimir"
   links:
     - label: "Email"
