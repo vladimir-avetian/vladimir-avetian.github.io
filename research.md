@@ -26,7 +26,7 @@ redirect_from:
   - Ideas Have Consequences: Impact of Russian Literature on Politics
 
 
-### Seminars and conferences
+%### Seminars and conferences
 
-  **2022** - *Sciences Po Internal Seminar*, *Echoppe Conference on The Economics of Housing and Housing Policies*, *EEA-ESEM 2022*, *The Lisbon Meeting on Economics and Political Science*, *16th North American Meeting of the Urban Economics Association*, *The 2022 SMU-Jinan Conference on Urban and Regional Economics*
+%  **2022** - *Sciences Po Internal Seminar*, *Echoppe Conference on The Economics of Housing and Housing Policies*, *EEA-ESEM 2022*, *The Lisbon Meeting on Economics and Political Science*, *16th North American Meeting of the Urban Economics Association*, *The 2022 SMU-Jinan Conference on Urban and Regional Economics*
 
