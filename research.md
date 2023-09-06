@@ -23,4 +23,4 @@ redirect_from:
 
   - Economics of Carpooling: Evidence from BlaBlaCar
   
-  - Ideas Have Consequences: Impact of Russian Literature on Politics
+  - Ideas in Motion: Impact of Russian Literature
