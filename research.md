@@ -21,6 +21,6 @@ redirect_from:
 
 ### Research in progress
 
-  - Economics of Carpooling: Evidence from BlaBlaCar
+  - Economics of Carpooling: Evidence from BlaBlaCar (with Shahmeer Mohsin and Dianzhuo Zhu)
   
-  - Ideas in Motion: Impact of Russian Literature
+  - Ideas in Motion: Impact of Russian Literature (with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))
