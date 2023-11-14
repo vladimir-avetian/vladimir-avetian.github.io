@@ -13,11 +13,12 @@ redirect_from:
 
   - Consider the Slavs: Overt Discrimination and Racial Disparities in Rental Housing [New draft soon] [[Visual summary](http://jmp-consider-the-slavs.tilda.ws/)]
 
+- You Can't Sit with Us: How Locals and Tourists Compete for Amenities in Paris _(with [Stefan Pauly](https://stefanpauly.net/))_ [[SSRN working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4585524)] [[Photography](https://vladimir-avetian.github.io/tower.jpg)] -- submitted
 
   - Social Media and the Diffusion of Protest: Evidence from Black Lives Matter  _(with [Annalí Casanueva Artís](https://www.parisschoolofeconomics.eu/fr/casanueva-artis-annali-mireia/), [Sulin Sardoschau](https://sites.google.com/view/sulinsardoschau/home) and [Kritika Saxena](https://www.kritikasaxena.com/))_
 [[SSRN working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3831819)]
 
-  - You Can't Sit with Us: How Locals and Tourists Compete for Amenities in Paris _(with [Stefan Pauly](https://stefanpauly.net/))_ [[SSRN working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4585524)] [[Photography](https://vladimir-avetian.github.io/tower.jpg)]
+  
 
 ### Research in progress
 
