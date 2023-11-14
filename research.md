@@ -20,7 +20,7 @@ redirect_from:
 
   
 
-### Research in progress
+### Research in progress 📝
 
   - Economics of Carpooling: Evidence from BlaBlaCar (with Shahmeer Mohsin and Dianzhuo Zhu)
   
