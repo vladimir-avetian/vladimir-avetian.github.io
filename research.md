@@ -23,6 +23,6 @@ R&R at the *Journal of Urban Economics*
 
 ### Research in progress 📝
 
-  - **Economics of Carpooling: Evidence from BlaBlaCar** (with Shahmeer Mohsin and Dianzhuo Zhu)
+  - Economics of Carpooling: Evidence from BlaBlaCar (with Shahmeer Mohsin and Dianzhuo Zhu)
   
-  - **Ideas in Motion: Impact of Russian Literature** (with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))
+  - Ideas in Motion: Impact of Russian Literature (with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))
