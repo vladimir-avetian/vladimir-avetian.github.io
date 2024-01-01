@@ -25,6 +25,6 @@ R&R at the *Journal of Urban Economics*
 
   - Economics of Carpooling: Evidence from BlaBlaCar (with Shahmeer Mohsin and Dianzhuo Zhu)
 
-  - Autocompleted (Mis-)Information (with [Ruben Durante](https://www.rubendurante.net/), [Ulrich Matter](https://umatter.github.io/), and [Ekaterina Zhuravskaya](https://www.parisschoolofeconomics.com/zhuravskaya-ekaterina/)
+  - Autocompleted (Mis-)Information (with [Ruben Durante](https://www.rubendurante.net/), [Ulrich Matter](https://umatter.github.io/), and [Ekaterina Zhuravskaya](https://www.parisschoolofeconomics.com/zhuravskaya-ekaterina/))
 
-  - Citation Overkill: Wikipedia and Knowledge Polarization (with [Ruben Durante](https://www.rubendurante.net/), [Ulrich Matter](https://umatter.github.io/), and [Ekaterina Zhuravskaya](https://www.parisschoolofeconomics.com/zhuravskaya-ekaterina/)
+  - Citation Overkill: Wikipedia and Knowledge Polarization (with [Ruben Durante](https://www.rubendurante.net/), [Ulrich Matter](https://umatter.github.io/), and [Ekaterina Zhuravskaya](https://www.parisschoolofeconomics.com/zhuravskaya-ekaterina/))
