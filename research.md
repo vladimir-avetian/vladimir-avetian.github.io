@@ -19,10 +19,12 @@ R&R at the *Journal of Urban Economics*
 - Social Media and the Diffusion of Protest: Evidence from Black Lives Matter  _(with [Annalí Casanueva Artís](https://www.parisschoolofeconomics.eu/fr/casanueva-artis-annali-mireia/), [Sulin Sardoschau](https://sites.google.com/view/sulinsardoschau/home) and [Kritika Saxena](https://www.kritikasaxena.com/))_
 [[SSRN working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3831819)]
 
-  
+ - Ideas in Motion: Impact of Russian Literature (with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))
 
 ### Research in progress 📝
 
   - Economics of Carpooling: Evidence from BlaBlaCar (with Shahmeer Mohsin and Dianzhuo Zhu)
-  
-  - Ideas in Motion: Impact of Russian Literature (with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))
+
+  - Autocompleted (Mis-)Information (with [Ruben Durante](https://www.rubendurante.net/), [Ulrich Matter](https://umatter.github.io/), and [Ekaterina Zhuravskaya](https://www.parisschoolofeconomics.com/zhuravskaya-ekaterina/)
+
+  - Citation Overkill: Wikipedia and Knowledge Polarization (with [Ruben Durante](https://www.rubendurante.net/), [Ulrich Matter](https://umatter.github.io/), and [Ekaterina Zhuravskaya](https://www.parisschoolofeconomics.com/zhuravskaya-ekaterina/)
