@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Setting the background color */
+}
+
+#image-container {
+    position: relative;
+    display: inline-block;
+}
+
+#interactive-image {
+    max-width: 50%; /* Adjust if needed */
+    height: auto;
+}
