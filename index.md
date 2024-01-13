@@ -13,8 +13,8 @@ I am a Postdoctoral Scholar at the [«Governance and Regulation» Chair](https:/
 
 I received my PhD in Economics from Sciences Po under supervision of [Sergeï Guriev](https://sites.google.com/site/sguriev/). 
 
-My research interests are Applied Microeconomics, Political Economy and Urban Economics.
+My research interests are Applied Microeconomics, Political Economy and Urban Economics. My CV is available [here](pdfs/cv.pdf).
 
 I also organise ["Public Governance" working group](https://acss-dig.psl.eu/fr/seminaires/public-governance) -- online seminar series focused on state of art research in political economy that uses non-traditional data and data-intensive methods.
 
-My CV is available [here](pdfs/cv.pdf).
+As a Russian citizen, I am against the military aggression in Ukraine, call for its cessation, and condemn Putin's dictatorial regime.
