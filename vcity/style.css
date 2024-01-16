@@ -24,3 +24,14 @@ body {
 
     /* Additional responsive adjustments can be added here */
 }
+
+#overlay-text {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    color: black; /* Choose a color that contrasts well with your images */
+    font-size: 24px; /* Adjust as needed */
+    font-family: 'Arial', sans-serif; /* Change to a beautiful font of your choice */
+    z-index: 10; /* Ensure text is above the image */
+}
