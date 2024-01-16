@@ -2,24 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Image Coordinates Display</title>
+    <title>Visible City</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div id="image-container">
-    <span id="overlay-text">Paris</span>
-    <img src="paris.png" alt="Interactive Image" id="interactive-image">
+    <div class="container text-center">
+        <div id="image-container" class="position-relative d-inline-block">
+            <span id="overlay-text" class="position-absolute">Paris</span>
+            <img src="paris.png" alt="Interactive Image" id="interactive-image" class="img-fluid">
+        </div>
+        <p id="coordinates-display">Move your mouse over the image.</p>
+
+        <!-- Buttons for changing the image -->
+        <div class="button-group mt-3">
+            <button class="change-image btn btn-primary" data-image="paris_buildings_1e.png">1e</button>
+            <button class="change-image btn btn-primary" data-image="paris_buildings_2e.png">2e</button>
+            <button class="change-image btn btn-primary" data-image="paris_buildings_3e.png">3e</button>
+            <button class="change-image btn btn-primary" data-image="paris_buildings_15e.png">15e</button>
+            <button class="change-image btn btn-primary" data-image="paris.png">Paris</button>
+        </div>
     </div>
-    <p id="coordinates-display">Move your mouse over the image.</p>
-
-    <!-- Buttons for changing the image -->
-    <button class="change-image" data-image="paris_buildings_1e.png">1e arr</button>
-    <button class="change-image" data-image="paris_buildings_2e.png">2e arr</button>
-    <button class="change-image" data-image="paris_buildings_3e.png">3e arr</button>
-    <button class="change-image" data-image="paris_buildings_15e.png">15e arr</button>
-    <button class="change-image" data-image="paris.png">Paris</button>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

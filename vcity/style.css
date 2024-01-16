@@ -12,7 +12,7 @@ body {
 }
 
 #interactive-image {
-    max-width: 50%; /* Adjust if needed */
+    max-width: 70%; /* Adjust if needed */
     height: auto;
 }
 
@@ -25,13 +25,17 @@ body {
     /* Additional responsive adjustments can be added here */
 }
 
+
 #overlay-text {
-    position: absolute;
-    top: 10px; /* Adjust as needed */
+    top: 5%;
     left: 50%;
-    transform: translate(-50%, -50%); 
-    color: black; /* Choose a color that contrasts well with your images */
-    font-size: 24px; /* Adjust as needed */
-    font-family: 'Arial', sans-serif; /* Change to a beautiful font of your choice */
-    z-index: 10; /* Ensure text is above the image */
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
 }
