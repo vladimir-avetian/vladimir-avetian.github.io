@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 20px;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Setting the background color */
+    background-color: #f0f0f0;
 }
 
 #image-container {
@@ -14,4 +14,13 @@ body {
 #interactive-image {
     max-width: 50%; /* Adjust if needed */
     height: auto;
+}
+
+/* Responsive styles for screens narrower than 768px (common width for tablets and phones) */
+@media (max-width: 768px) {
+    #interactive-image {
+        max-width: 90%; /* Increase the width on smaller screens */
+    }
+
+    /* Additional responsive adjustments can be added here */
 }
