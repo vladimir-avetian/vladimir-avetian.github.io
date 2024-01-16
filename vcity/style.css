@@ -9,33 +9,27 @@ body {
 #image-container {
     position: relative;
     display: inline-block;
+    max-width: 100%; /* Ensure container doesn't overflow the width */
 }
 
 #interactive-image {
-    max-width: 70%; /* Adjust if needed */
+    max-width: 100%; /* Image takes maximum available width */
     height: auto;
+    max-height: 70vh; /* Limit image height to 70% of the viewport height */
 }
 
-/* Responsive styles for screens narrower than 768px (common width for tablets and phones) */
+/* Responsive styles for mobile devices */
 @media (max-width: 768px) {
     #interactive-image {
         max-width: 90%; /* Increase the width on smaller screens */
+        max-height: 60vh; /* Adjust height for mobile screens */
     }
-
-    /* Additional responsive adjustments can be added here */
+    /* Adjust padding or margins here for mobile layout */
 }
 
-
 #overlay-text {
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 20px;
-    font-family: 'Arial', sans-serif;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px;
-    border-radius: 5px;
-    text-align: center;
+    text-align: center; /* Center the text inside the element */
+    font-size: 24px; /* Adjust the size as needed */
+    width: 100%; /* Set the width of the element */
+    margin: 0 auto; /* Center the element itself horizontally */
 }
