@@ -5,4 +5,9 @@ $(document).ready(function() {
         var y = event.clientY - rect.top;
         $('#coordinates-display').text('X: ' + x + ', Y: ' + y);
     });
+
+    $('.change-image').click(function() {
+        var newImage = $(this).data('image');
+        $('#interactive-image').attr('src', newImage);
+    });
 });
