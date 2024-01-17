@@ -15,7 +15,7 @@ body {
 #interactive-image {
     max-width: 100%; /* Image takes maximum available width */
     height: auto;
-    max-height: 70vh; /* Limit image height to 70% of the viewport height */
+    max-height: 80vh; /* Limit image height to 70% of the viewport height */
 }
 
 /* Responsive styles for mobile devices */
