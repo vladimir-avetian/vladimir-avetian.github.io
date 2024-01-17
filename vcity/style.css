@@ -20,11 +20,17 @@ body {
 
 /* Responsive styles for mobile devices */
 @media (max-width: 768px) {
-    #interactive-image {
-        max-width: 90%; /* Increase the width on smaller screens */
-        max-height: 60vh; /* Adjust height for mobile screens */
+    .container {
+        height: 100vh; /* Full height of the viewport */
+        display: flex; /* Enable flexbox */
+        flex-direction: column; /* Stack children vertically */
+        justify-content: center; /* Center vertically */
+        align-items: center; /* Center horizontally */
     }
-    /* Adjust padding or margins here for mobile layout */
+
+    #image-container {
+        width: 90%; /* Adjust image container width on small devices */
+    }
 }
 
 #overlay-text {
