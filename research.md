@@ -19,7 +19,7 @@ R&R at the *Journal of Urban Economics*
 - Social Media and the Diffusion of Protest: Evidence from Black Lives Matter  _(with [Annalí Casanueva Artís](https://www.parisschoolofeconomics.eu/fr/casanueva-artis-annali-mireia/), [Sulin Sardoschau](https://sites.google.com/view/sulinsardoschau/home) and [Kritika Saxena](https://www.kritikasaxena.com/))_
 [[SSRN working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3831819)]
 
- - Ideas in Motion: Impact of Russian Literature _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_
+ - Ink and Ire: The Revolutionary Impact of Russian Literature _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_
 
 
 ### Research in progress 📝 
