@@ -13,8 +13,7 @@ redirect_from:
 
 - You Can't Sit with Us: How Locals and Tourists Compete for Amenities in Paris
   _(with [Stefan Pauly](https://stefanpauly.net/))_  
-  [[SSRN working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4585524)]  
-  [Photography](https://vladimir-avetian.github.io/tower.jpg)  
+  [SSRN working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4585524),[Photography](https://vladimir-avetian.github.io/tower.jpg)  
   *R&R* at the **Journal of Urban Economics**
 
 - Late Adoption and Collective Action: Social Media Expansion and the Diffusion of Black Lives Matter  
