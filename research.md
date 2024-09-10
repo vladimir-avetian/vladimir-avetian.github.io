@@ -18,7 +18,7 @@ redirect_from:
 
 - Late Adoption and Collective Action: Social Media Expansion and the Diffusion of Black Lives Matter  
   _(with [Annalí Casanueva Artís](https://www.parisschoolofeconomics.eu/fr/casanueva-artis-annali-mireia/), [Sulin Sardoschau](https://sites.google.com/view/sulinsardoschau/home), and [Kritika Saxena](https://www.kritikasaxena.com/))_  
-  [Working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3831819) 
+  [Working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3831819)                                                         
   *Submitted*
 
 - Ink and Ire: The Revolutionary Impact of Russian Literature  
