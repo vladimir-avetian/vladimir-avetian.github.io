@@ -25,7 +25,7 @@ redirect_from:
   _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_  
   [AEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/)
 
-- Consider the Slavs: Overt Discrimination and Racial Disparities in Rental Housing
+- Consider the Slavs: Overt Discrimination and Racial Disparities in Rental Housing (with Victor Veterinarov)
 
 
 ### Research in progress 📝 
