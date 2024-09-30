@@ -19,4 +19,4 @@ I also organise ["Public Governance" working group](https://acss-dig.psl.eu/fr/s
 
 As a Russian citizen, I am against the military aggression in Ukraine, call for its cessation, and condemn Putin's dictatorial regime.
 
-Upcoming presentations: *University of Manchester (Oct. 18), Chapman University (Nov. 13), UC Riverside (Nov. 15), Stanford (Nov. 21)*
+**Upcoming presentations**: *University of Manchester (Oct. 18), Chapman University (Nov. 13), UC Riverside (Nov. 15), Stanford (Nov. 21)*
