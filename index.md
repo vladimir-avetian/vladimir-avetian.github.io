@@ -9,6 +9,8 @@ redirect_from:
   - /about.html
 ---
 
+Upcoming presentations: *University of Manchester (Oct. 18), Chapman University (Nov. 13), UC Riverside (Nov. 15), Stanford (Nov. 21)*
+
 I am a Postdoctoral Scholar at the [«Governance and Regulation» Chair](https://chairgovreg.fondation-dauphine.fr/fr/node/1) of the University Paris-Dauphine - PSL. 
 
 I received my PhD in Economics from Sciences Po under supervision of [Sergeï Guriev](https://sites.google.com/site/sguriev/). 
