@@ -8,6 +8,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
+**Upcoming presentations**: *University of Manchester (Oct. 18), LSE-UCL (Oct. 31), Chapman University (Nov. 13), UC Riverside (Nov. 15), Stanford (Nov. 21)*
 
 I am a Postdoctoral Scholar at the [«Governance and Regulation» Chair](https://chairgovreg.fondation-dauphine.fr/fr/node/1) of the University Paris-Dauphine - PSL. 
 
@@ -18,5 +19,3 @@ My research interests are Applied Microeconomics, Political Economy and Urban Ec
 I also organise ["Public Governance" working group](https://acss-dig.psl.eu/fr/seminaires/public-governance) -- online seminar series focused on state of art research in political economy that uses non-traditional data and data-intensive methods.
 
 As a Russian citizen, I am against the military aggression in Ukraine, call for its cessation, and condemn Putin's dictatorial regime.
-
-**Upcoming presentations**: *University of Manchester (Oct. 18), Chapman University (Nov. 13), UC Riverside (Nov. 15), Stanford (Nov. 21)*
