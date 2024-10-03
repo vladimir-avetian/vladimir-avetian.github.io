@@ -16,7 +16,7 @@ I received my PhD in Economics from Sciences Po under supervision of [Sergeï Gu
 
 Research interestsL: Political Economy, Culture and Urban Economics. 
 
-I also organise ["Public Governance" online seminar](https://acss-dig.psl.eu/fr/seminaires/public-governance) focused on Political Economomy + Data Science.
+I organise ["Public Governance" online seminar](https://acss-dig.psl.eu/fr/seminaires/public-governance) focused on Political Economy + Data Science.
 
 My CV is available [here](pdfs/cv.pdf).
 
