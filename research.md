@@ -20,7 +20,7 @@ redirect_from:
   _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_  
   [AEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/)
 
-- Consider the Slavs: Overt Discrimination and Racial Disparities in Rental Housing (with Viktor Veterinarov)
+- Slavs Only: Open Xenophobia and Racial Disparities in Rental Housinge (with Viktor Veterinarov)
 
 - Late Adoption and Collective Action: Social Media Expansion and the Diffusion of Black Lives Matter  
   _(with [Annalí Casanueva Artís](https://www.parisschoolofeconomics.eu/fr/casanueva-artis-annali-mireia/), [Sulin Sardoschau](https://sites.google.com/view/sulinsardoschau/home), and [Kritika Saxena](https://www.kritikasaxena.com/))_  
