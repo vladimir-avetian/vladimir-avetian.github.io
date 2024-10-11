@@ -16,10 +16,10 @@ redirect_from:
   [Working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4585524), [Photo](https://vladimir-avetian.github.io/tower.jpg)  
   *R&R* at the **Journal of Urban Economics**
 
-- Ink and Ire: The Revolutionary Impact of Russian Literature  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_
+- Ink and Ire: The Revolutionary Impact of Russian Literature  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_              
   [AEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/)
 
-- Slavs Only: Open Xenophobia and Racial Disparities in Rental Housing (with Viktor Veterinarov)
+- Slavs Only: Open Xenophobia and Racial Disparities in Rental Housing (with Viktor Veterinarov)          
   [Working paper](https://vladimir-avetian.github.io/pdfs/Slavs.pdf)
 
 - Late Adoption and Collective Action: Social Media Expansion and the Diffusion of Black Lives Matter  
