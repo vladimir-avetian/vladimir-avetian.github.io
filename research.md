@@ -17,8 +17,8 @@ redirect_from:
   *R&R* at the **Journal of Urban Economics**
 
 - Ink and Ire: The Revolutionary Impact of Russian Literature  
-  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_  
-  [AEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/)
+  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_
+  [Working paper](https://vladimir-avetian.github.io/pdfs/Slavs.pdf), [AEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/)
 
 - Slavs Only: Open Xenophobia and Racial Disparities in Rental Housing (with Viktor Veterinarov)
 
