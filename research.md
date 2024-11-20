@@ -19,7 +19,7 @@ redirect_from:
 - Ink and Ire: The Revolutionary Impact of Russian Literature  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_              
   [AEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/)
 
-- Slavs Only: Open Xenophobia and Racial Disparities in Rental Housing (with Viktor Veterinarov)          
+- Slavs Only: Open Xenophobia and Racial Disparities in Rental Housing (with [Viktor Veterinarov](https://viktorveterinarov.github.io/))          
   [Working paper](https://vladimir-avetian.github.io/pdfs/Slavs.pdf)
 
 - Late Adoption and Collective Action: Social Media Expansion and the Diffusion of Black Lives Matter  
