@@ -16,7 +16,8 @@ redirect_from:
   [Working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4585524), [Photo](https://vladimir-avetian.github.io/tower.jpg)  
   *R&R* at the **Journal of Urban Economics**
 
-- Ink and Ire: The Revolutionary Impact of Russian Literature  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_              
+- Ink and Ire: The Revolutionary Impact of Russian Literature  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_
+  [Working paper](https://drive.google.com/file/d/1ctlF_KBhzSLXid6SCJXKI5cKHJq3oVHr/view?usp=sharing)
   [AEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/)
 
 - Slavs Only: Open Xenophobia and Racial Disparities in Rental Housing (with [Viktor Veterinarov](https://viktorveterinarov.github.io/))          
