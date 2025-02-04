@@ -13,21 +13,21 @@ redirect_from:
 
 - You Can't Sit with Us: How Locals and Tourists Compete for Amenities in Paris
   _(with [Stefan Pauly](https://stefanpauly.net/))_  
-  [Working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4585524), [Photo](https://vladimir-avetian.github.io/tower.jpg)  
+  [Working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4585524), [Photo](https://vladimir-avetian.github.io/tower.jpg),   
   *conditionally accepted* at the **Journal of Urban Economics**
 
 - Ink and Ire: The Revolutionary Impact of Russian Literature  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_   
   [Working paper](https://drive.google.com/file/d/1ctlF_KBhzSLXid6SCJXKI5cKHJq3oVHr/view?usp=sharing),
-  [ArmEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/)
+  [ArmEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/),         
   *under review*
 
 - Slavs Only: Open Xenophobia and Racial Disparities in Rental Housing (with [Viktor Veterinarov](https://viktorveterinarov.github.io/))          
-  [Working paper](https://vladimir-avetian.github.io/pdfs/Slavs.pdf)
+  [Working paper](https://vladimir-avetian.github.io/pdfs/Slavs.pdf),      
   *under review*
 
 - Late Adoption and Collective Action: Social Media Expansion and the Diffusion of Black Lives Matter  
   _(with [Annalí Casanueva Artís](https://www.parisschoolofeconomics.eu/fr/casanueva-artis-annali-mireia/), [Sulin Sardoschau](https://sites.google.com/view/sulinsardoschau/home), and [Kritika Saxena](https://www.kritikasaxena.com/))_  
-  [Working paper](https://vladimir-avetian.github.io/pdfs/BLM.pdf)
+  [Working paper](https://vladimir-avetian.github.io/pdfs/BLM.pdf),      
   *under review*
 
 ### Research in progress 📝 
