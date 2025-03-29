@@ -17,7 +17,7 @@ redirect_from:
   *conditionally accepted* at the **Journal of Urban Economics**
 
 - Ink and Ire: The Revolutionary Impact of Russian Literature  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_   
-  [Working paper](https://drive.google.com/file/d/1ctlF_KBhzSLXid6SCJXKI5cKHJq3oVHr/view?usp=sharing),
+  [Working paper](https://vladimir-avetian.github.io/pdfs/Literature_January_2025.pdf),
   [ArmEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/),         
   *under review*
 
