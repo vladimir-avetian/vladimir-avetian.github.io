@@ -11,12 +11,12 @@ redirect_from:
 
 ### Publications 📦
 
-### Working papers 📓
-
 - You Can't Sit with Us: How Locals and Tourists Compete for Amenities in Paris
   _(with [Stefan Pauly](https://stefanpauly.net/))_  
   [Working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4585524), [Photo](https://vladimir-avetian.github.io/tower.jpg),   
   **Journal of Urban Economics** *(forthcoming)*
+  
+### Working papers 📓
 
 - Ink and Ire: The Revolutionary Impact of Russian Literature  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_   
   [Working paper](https://vladimir-avetian.github.io/pdfs/Literature_January_2025.pdf),
