@@ -13,7 +13,7 @@ redirect_from:
 
 - You Can't Sit with Us: How Locals and Tourists Compete for Amenities in Paris _(with [Stefan Pauly](https://stefanpauly.net/))_  
   [Working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4585524), [Photo](https://vladimir-avetian.github.io/tower.jpg),   
-  **Journal of Urban Economics** *(forthcoming)*
+  **Journal of Urban Economics** *(2025, forthcoming), Volume 148*
   
 ### Working papers 📓
 
