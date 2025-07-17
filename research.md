@@ -27,6 +27,7 @@ redirect_from:
 - Slavs Only: Open Xenophobia and Racial Disparities in Rental Housing _(with [Viktor Veterinarov](https://viktorveterinarov.github.io/))_ 
   [Working paper](https://vladimir-avetian.github.io/pdfs/Slavs.pdf),      
   *under review*
+  
 
 
 - Late Adoption and Collective Action: Social Media Expansion and the Diffusion of Black Lives Matter  
