@@ -15,7 +15,7 @@ I received my PhD in Economics from Sciences Po under supervision of [Sergeï Gu
 
 *Research interests:* Applied Micro, Political Economy, Culture and Urban Economics. 
 
-*Research Methods:* Causal Inference, Unstructured Data, Big Data.
+*Research methods:* Causal Inference, Unstructured Data, Big Data.
 
 I organise ["Public Governance" online seminar](https://acss-dig.psl.eu/fr/seminaires/public-governance) focused on Political Economy + Data Science.
 
