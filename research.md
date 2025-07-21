@@ -20,15 +20,11 @@ redirect_from:
 - Ink and Ire: The Revolutionary Impact of Russian Literature  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_   
   [Working paper](https://drive.google.com/file/d/1ctlF_KBhzSLXid6SCJXKI5cKHJq3oVHr/view),
   [ArmEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/),         
-  *under review*
   
 - The Anatomy of Censorship and Propaganda: Evidence from Russian Wikipedias _(with [Ruben Durante](https://www.rubendurante.net/), [Ulrich Matter](https://umatter.github.io/), and [Ekaterina Zhuravskaya](https://www.parisschoolofeconomics.com/zhuravskaya-ekaterina/))_
 
 - Slavs Only: Open Xenophobia and Racial Disparities in Rental Housing _(with [Viktor Veterinarov](https://viktorveterinarov.github.io/))_ 
   [Working paper](https://vladimir-avetian.github.io/pdfs/Slavs.pdf),      
-  *under review*
-  
-
 
 - Late Adoption and Collective Action: Social Media Expansion and the Diffusion of Black Lives Matter  
   _(with [Annalí Casanueva Artís](https://www.parisschoolofeconomics.eu/fr/casanueva-artis-annali-mireia/), [Sulin Sardoschau](https://sites.google.com/view/sulinsardoschau/home), and [Kritika Saxena](https://www.kritikasaxena.com/))_  
