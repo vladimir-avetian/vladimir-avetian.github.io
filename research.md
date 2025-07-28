@@ -37,4 +37,4 @@ redirect_from:
 
   - Citation Overkill: Wikipedia and Knowledge Polarization _(with [Ruben Durante](https://www.rubendurante.net/), [Ulrich Matter](https://umatter.github.io/), and [Ekaterina Zhuravskaya](https://www.parisschoolofeconomics.com/zhuravskaya-ekaterina/))_
 
-  - Economics of Carpooling: Evidence from BlaBlaCar _(with [Surjasama Lahiri](https://www.surjasamalahiri.com/), [Shahmeer Mohsin](https://chairgovreg.fondation-dauphine.fr/en/shahmeer-mohsin), and [Dianzhuo Zhu]([https://chairgovreg.fondation-dauphine.fr/en/dianzhuo-zhu](https://sites.google.com/view/dianzhuozhu/home?authuser=0)))_
+  - Economics of Carpooling: Evidence from BlaBlaCar _(with [Surjasama Lahiri](https://www.surjasamalahiri.com/), [Shahmeer Mohsin](https://chairgovreg.fondation-dauphine.fr/en/shahmeer-mohsin), and [Dianzhuo Zhu](https://sites.google.com/view/dianzhuozhu/home?authuser=0))_
