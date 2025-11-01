@@ -23,7 +23,7 @@ redirect_from:
 - The Anatomy of Censorship and Propaganda: Evidence from Russian Wikipedias _(with [Ruben Durante](https://www.rubendurante.net/), [Ulrich Matter](https://umatter.github.io/), and [Ekaterina Zhuravskaya](https://www.parisschoolofeconomics.com/zhuravskaya-ekaterina/))_
 
 - Ink and Ire: The Revolutionary Impact of Russian Literature  _(with [Sultan Mehmood](https://sites.google.com/view/sultan-mehmood/home))_   
-  [New draft is coming soon],
+  [Working paper](https://drive.google.com/file/d/1g8jw1alUIVb2ZZ-PNORc6iITmnJeb9uz/view),
   [ArmEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/)  
 
 - Late Adoption and Collective Action: Social Media Expansion and the Diffusion of Black Lives Matter  
