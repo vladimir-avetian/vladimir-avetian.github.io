@@ -13,7 +13,7 @@ I am a Postdoctoral Scholar at the [«Governance and Regulation» Chair](https:/
 
 I received my PhD in Economics from Sciences Po under supervision of [Sergeï Guriev](https://sites.google.com/site/sguriev/). 
 
-*Research interests:* Applied Micro, Political Economy, Culture and Urban Economics. 
+*Research interests:* Political Economy, Urban Economics, Applied Micro
 
 *Research methods:* Causal Inference, Unstructured Data, Text-as-Data.
 
