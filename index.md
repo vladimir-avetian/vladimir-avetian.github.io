@@ -17,7 +17,7 @@ I received my PhD in Economics from Sciences Po under supervision of [Sergeï Gu
 
 *Research methods:* Causal Inference, Unstructured Data, Text-as-Data.
 
-I organise ["Public Governance" online seminar](https://acss-dig.psl.eu/fr/seminaires/public-governance) focused on Political Economy + Data Science. Please, contact me if you want to attend or present. 
+I organise ["Public Governance" online seminar](https://acss-dig.psl.eu/fr/seminaires/public-governance) focused on Political Economy + AI / Data Science. Please, contact me if you want to attend or present. 
 
 **My CV is available [here](https://www.dropbox.com/scl/fi/2vzfxbjben6yskdfxd4b7/cv.pdf?rlkey=e1kvs0rsvlek9xcxon9sce3w9&st=bu5f3vjn&dl=0).**
 
