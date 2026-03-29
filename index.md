@@ -21,4 +21,4 @@ I organise ["Public Governance" online seminar](https://acss-dig.psl.eu/fr/semin
 
 **My CV is available [here](https://vladimir-avetian.github.io/pdfs/cv.pdf).**
 
-As a Russian citizen, I am against the military aggression in Ukraine, call for its cessation, and condemn Putin's dictatorial regime.
+Personal: I love the arts and sciences. I hate tyrants and wars, including Putin’s war in Ukraine.
