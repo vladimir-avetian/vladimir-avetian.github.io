@@ -9,9 +9,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a Postdoctoral Scholar at the [«Governance and Regulation» Chair](https://chairgovreg.fondation-dauphine.fr/fr/node/1) of the University Paris-Dauphine - PSL. 
-
-I received my PhD in Economics from Sciences Po under supervision of [Sergeï Guriev](https://sites.google.com/site/sguriev/). 
+This summer, I am joining King’s College London as an AI+ Academic Senior Fellow (tenure track). Previously, I was a Postdoctoral Scholar at the Governance and Regulation Chair, University Paris-Dauphine – PSL. I received my PhD in Economics from Sciences Po.
 
 *Research interests:* Political Economy, Urban Economics, Applied Micro.
 
