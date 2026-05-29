@@ -9,7 +9,7 @@ redirect_from:
   - /about.html
 ---
 
-This summer, I am joining King’s College London as an AI+ Academic Senior Fellow (tenure track). Previously, I was a Postdoctoral Scholar at the Governance and Regulation Chair, University Paris-Dauphine – PSL. I received my PhD in Economics from Sciences Po.
+This summer, I am joining King’s College London as an AI+ Academic Senior Fellow (tenure track). Previously, I was a Postdoctoral Scholar at University Paris-Dauphine – PSL. I received my PhD in Economics from Sciences Po.
 
 *Research interests:* Political Economy, Urban Economics, Applied Micro.
 
