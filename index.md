@@ -15,7 +15,7 @@ This summer, I am joining King’s College London as an AI+ Academic Senior Fell
 
 *Research methods:* Causal Inference, Unstructured Data, Text-as-Data.
 
-I organise ["Public Governance" online seminar](https://acss-dig.psl.eu/fr/seminaires/public-governance) focused on Political Economy + AI / Data Science. Please, contact me if you want to attend or present. 
+I co-organise ["Public Governance" online seminar](https://acss-dig.psl.eu/fr/seminaires/public-governance) focused on Political Economy + AI / Data Science. Please, contact me if you want to attend or present. 
 
 **My CV is available [here](https://vladimir-avetian.github.io/pdfs/cv.pdf).**
 
