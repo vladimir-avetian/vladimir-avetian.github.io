@@ -9,7 +9,7 @@ redirect_from:
   - /about.html
 ---
 
-This summer, I am joining King’s Business School, King’s College London, as an AI+ Academic Senior Fellow (tenure track). Previously, I was a Postdoctoral Scholar at University Paris-Dauphine – PSL. I received my PhD in Economics from Sciences Po.
+This summer, I am joining King’s Business School, [King’s College London](https://www.kcl.ac.uk/), as an AI+ Academic Senior Fellow (tenure track). Previously, I was a Postdoctoral Scholar at University Paris-Dauphine – PSL. I received my PhD in Economics from Sciences Po.
 
 *Research:* Political Economy, Urban Economics, Unstructured Data.
 
