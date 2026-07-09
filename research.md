@@ -22,7 +22,7 @@ redirect_from:
   [ArmEA Grigor Artsruni Award](https://aea.am/grigor-artsruni-award/)
   
 - Slavs Only: Open Xenophobia and Racial Disparities in Rental Housing _(with [Viktor Veterinarov](https://viktorveterinarov.github.io/))_,                              
-  [Working paper](https://vladimir-avetian.github.io/pdfs/Slavs.pdf)
+  [Working paper](https://vladimir-avetian.github.io/pdfs/Slavs.pdf)                        
   **R&R at *Journal of Urban Economics***
 
 - The Anatomy of Censorship and Propaganda: Evidence from Russian Wikipedias _(with [Ruben Durante](https://www.rubendurante.net/), [Ulrich Matter](https://umatter.github.io/), and [Ekaterina Zhuravskaya](https://www.parisschoolofeconomics.com/zhuravskaya-ekaterina/))_
