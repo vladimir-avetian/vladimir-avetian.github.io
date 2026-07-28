@@ -26,6 +26,7 @@ redirect_from:
   **R&R at *Journal of Urban Economics***
 
 - The Anatomy of Censorship and Propaganda: Evidence from Russian Wikipedias _(with [Ruben Durante](https://www.rubendurante.net/), [Ulrich Matter](https://umatter.github.io/), and [Ekaterina Zhuravskaya](https://www.parisschoolofeconomics.com/zhuravskaya-ekaterina/))_
+  [Working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7059539)
 
 - Late Adoption and Collective Action: Social Media Expansion and the Diffusion of Black Lives Matter  
   _(with [Annalí Casanueva Artís](https://www.parisschoolofeconomics.eu/fr/casanueva-artis-annali-mireia/), [Sulin Sardoschau](https://sites.google.com/view/sulinsardoschau/home), and [Kritika Saxena](https://www.kritikasaxena.com/))_  
