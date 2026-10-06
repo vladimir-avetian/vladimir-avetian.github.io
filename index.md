@@ -13,7 +13,7 @@ I am an AI+ Academic Senior Fellow at King’s Business School, [King’s Colleg
 
 *Research:* Political Economy, Urban Economics, Unstructured Data.
 
-I co-organise ["Public Governance" online seminar](https://acss-dig.psl.eu/fr/seminaires/public-governance) focused on Political Economy + AI / Data Science. Please, contact me if you want to attend or present. 
+I co-organise [Political Economy + AI](https://peai-seminar.org/), an online seminar on political economy research using AI and computational methods.
 
 **My CV is available [here](https://vladimir-avetian.github.io/pdfs/cv.pdf).**
 
