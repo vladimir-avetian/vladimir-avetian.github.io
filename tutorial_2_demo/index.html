@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What makes a gap statistically significant?</title>
+<style>
+  :root { color-scheme:light; --ink:#253039; --muted:#66717b; --blue:#216c89; --grey:#9ca7ae; --line:#dbe0e3; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#fcfcfa; color:var(--ink); font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  main { max-width:860px; margin:auto; padding:30px 26px 24px; }
+  h1 { font-size:27px; font-weight:500; letter-spacing:-.035em; margin:0 0 4px; }
+  p { margin:0; }
+  .intro { font-size:15px; color:var(--muted); }
+  .controls { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:23px; margin:24px 0 13px; }
+  .controls.callback-mode { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  [hidden] { display:none !important; }
+  .control label { font-size:13px; display:block; }
+  .control output { display:block; font-size:20px; font-variant-numeric:tabular-nums; margin-top:3px; }
+  .control small { display:block; min-height:18px; color:var(--muted); font-size:12px; }
+  input[type=range] { width:100%; margin:4px 0; height:30px; accent-color:var(--blue); cursor:ew-resize; }
+  input:disabled { cursor:default; opacity:.45; }
+  button,input:focus-visible,summary:focus-visible { outline-offset:4px; }
+  button:focus-visible,input:focus-visible,summary:focus-visible { outline:2px solid var(--blue); }
+  .actions { display:flex; gap:8px 17px; flex-wrap:wrap; align-items:center; }
+  button { font:inherit; font-size:14px; padding:8px 12px; background:transparent; border:1px solid var(--line); border-radius:4px; color:var(--ink); cursor:pointer; }
+  button.primary { background:var(--ink); border-color:var(--ink); color:#fff; }
+  button:hover { filter:brightness(.93); }
+  button:disabled { opacity:.55; cursor:wait; }
+  .mode { display:flex; align-items:center; gap:7px; font-size:13px; }
+  .mode input { accent-color:var(--blue); margin:0; width:16px; height:16px; }
+  .note { font-size:12px; color:var(--muted); margin-top:10px; }
+  .caption { font-size:13px; color:var(--muted); margin:21px 0 0; }
+  svg { width:100%; height:333px; display:block; overflow:visible; }
+  svg text { fill:var(--ink); font:13px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  svg .muted { fill:var(--muted); font-size:12px; }
+  .numbers { display:flex; flex-wrap:wrap; gap:3px 25px; align-items:baseline; margin:2px 0 5px; font-variant-numeric:tabular-nums; }
+  #pvalue { font-size:25px; font-weight:500; letter-spacing:-.025em; }
+  #tvalue,#sevalue { font-size:15px; color:var(--muted); }
+  #verdict { font-size:15px; }
+  .formula { margin-top:19px; }
+  .formula-heading { font-size:14px; }
+  .formula math { font-size:22px; margin:10px 0; text-align:left; }
+  .formula .note { margin-top:5px; }
+  #formula-inputs,#formula-calculation { font-variant-numeric:tabular-nums; }
+  #formula-calculation { font-size:15px; margin-top:7px; }
+  .repeat { border-top:1px solid var(--line); padding-top:15px; margin-top:20px; display:flex; flex-wrap:wrap; align-items:center; gap:10px 17px; }
+  #repeat-result { font-size:14px; flex:1 1 230px; }
+  details { font-size:12px; color:var(--muted); margin-top:12px; }
+  summary { width:fit-content; cursor:pointer; }
+  details p { margin-top:7px; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+  @media(max-width:590px) {
+    main { padding:24px 18px; }
+    h1 { font-size:24px; }
+    .controls { gap:10px; }
+    .control label { min-height:39px; font-size:12px; }
+    .control output { font-size:18px; }
+    .control small { font-size:11px; }
+    .numbers { gap:3px 17px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>What makes a gap statistically significant?</h1>
+  <p class="intro" id="intro">Change the gap, the spread, or the sample size. Then draw a new sample.</p>
+  <div class="controls" id="controls">
+    <div class="control">
+      <label for="gap" id="gap-label">True gap · B − A</label>
+      <output id="gap-value" for="gap"></output>
+      <input type="range" id="gap" min="-2" max="2" step="0.02" value="0.5">
+      <small id="gap-note">Population mean difference</small>
+    </div>
+    <div class="control" id="spread-control">
+      <label for="spread">Spread · standard deviation</label>
+      <output id="spread-value" for="spread"></output>
+      <input type="range" id="spread" min="0.2" max="2" step="0.05" value="1">
+      <small id="variance-value"></small>
+    </div>
+    <div class="control">
+      <label for="n">Observations per group</label>
+      <output id="n-value" for="n"></output>
+      <input type="range" id="n" min="0" max="9" step="1" value="3">
+      <small id="n-total"></small>
+    </div>
+  </div>
+  <div class="actions">
+    <button type="button" class="primary" id="draw">Draw another sample</button>
+    <label class="mode"><input type="checkbox" id="callback">Use callback outcomes (0/1)</label>
+  </div>
+  <p class="note" id="mode-note"></p>
+
+  <p class="caption" id="sample-caption"></p>
+  <svg id="plot" role="img" aria-label="Two random samples, their means, and a confidence interval for their difference."></svg>
+  <div class="numbers"><span id="pvalue"></span><span id="tvalue"></span><span id="sevalue"></span></div>
+  <p id="verdict"></p>
+  <p class="note" id="approximation-note" hidden>Callback mode uses a large-sample t approximation. With few callbacks, its p-values and confidence intervals can be unreliable.</p>
+  <p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+
+  <section class="formula" aria-label="How the t-statistic is calculated">
+    <p class="formula-heading">t = observed gap ÷ standard error of the gap</p>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="t equals the sample mean of B minus the sample mean of A, divided by the square root of sample variance A over n plus sample variance B over n.">
+      <mi>t</mi><mo>=</mo>
+      <mfrac>
+        <mrow><msub><mover><mi>y</mi><mo>¯</mo></mover><mi>B</mi></msub><mo>−</mo><msub><mover><mi>y</mi><mo>¯</mo></mover><mi>A</mi></msub></mrow>
+        <msqrt><mrow><mfrac><msubsup><mi>s</mi><mi>A</mi><mn>2</mn></msubsup><mi>n</mi></mfrac><mo>+</mo><mfrac><msubsup><mi>s</mi><mi>B</mi><mn>2</mn></msubsup><mi>n</mi></mfrac></mrow></msqrt>
+      </mfrac>
+    </math>
+    <p class="note">Testing H₀: μ<sub>B</sub> − μ<sub>A</sub> = 0. Here ȳ is a sample mean, s is a sample standard deviation, and n is the number in each group.</p>
+    <p class="note" id="formula-inputs"></p>
+    <p id="formula-calculation"></p>
+    <p class="note" id="formula-units"></p>
+  </section>
+
+  <div class="repeat">
+    <button type="button" id="repeat">Repeat 200 experiments</button>
+    <p id="repeat-result" aria-live="polite">Set the true gap to zero: how often will chance alone produce p &lt; 0.05?</p>
+  </div>
+  <p class="note">Sliders reuse the random draws so you can isolate each change. “Draw another sample” generates fresh observations.</p>
+  <details>
+    <summary>How the simulation works</summary>
+    <p>Continuous mode draws independent normal observations: group A has mean 0; group B has the chosen true gap. Both have the chosen standard deviation, whose square is the population variance. Every displayed statistic is calculated from the generated sample, including the estimated standard error.</p>
+    <p>Callback mode draws independent Bernoulli outcomes. It starts from the observed rates in bm.dta: 235/2,435 for White-sounding names and 157/2,435 for Black-sounding names. These rates are used as simulation probabilities, not treated as known population truths. Adjusting the gap changes group B's probability. A binary outcome's variance is p(1−p), so its spread cannot be set independently.</p>
+    <p>The two-sided pooled t-test uses df = 2n−2 and SE = √[(s²A + s²B)/n] for equal group sizes. The sample variances use the n−1 denominator. This simplified formula is the pooled-test formula because both groups have the same n; unequal group sizes would require a different pooled standard error. It matches conventional OLS with an intercept for reg outcome group, with A = 0 and B = 1. Stata's default ttest instead reports A − B: the sign reverses, but the two-sided p-value is unchanged. The t-test is exact under the independent, normal, equal-variance continuous model; the callback version is a large-sample approximation, not an exact test for binary outcomes. If neither group has variation, no t-test is reported. This is an independent-sampling illustration, not a replication of the original within-advertisement randomization.</p>
+    <p>The p-value is the probability, under the zero-gap null model, of a t-statistic at least as extreme in absolute value as the one observed. It is not the probability that the null hypothesis is true. Statistical significance does not measure the size or practical importance of an effect.</p>
+    <p>Repeated experiments use fresh observations with the current population settings. Under the continuous zero-gap model, about 5% are significant in the long run; any batch of 200 will fluctuate. When the true gap is nonzero, the fraction detected illustrates statistical power.</p>
+  </details>
+</main>
+<script id="experiment-data" type="application/json">
+{"nPerGroup":2435,"whiteProbability":0.09650924024640657,"blackProbability":0.06447638603696099}
+</script>
+<script>
+(() => {
+  'use strict';
+  const data=JSON.parse(document.getElementById('experiment-data').textContent);
+  const $=id=>document.getElementById(id), svg=$('plot'), ns='http://www.w3.org/2000/svg';
+  const sizes=[10,20,30,50,100,200,500,1000,2435,5000];
+  const state={binary:false,gap:.5,sd:1,n:50,draw:1};
+  const critCache=new Map();
+  let noiseA,noiseB,uniformA,uniformB,current,version=0,announceTimer;
+  const signed=(v,k=2)=>(Math.abs(v)<1e-10?'':v<0?'−':'+')+Math.abs(v).toFixed(k);
+  const formatted=v=>state.binary?signed(v*100)+' pp':signed(v);
+  const random=()=>Math.max(Number.EPSILON,Math.random());
+  function normalPair() {
+    const radius=Math.sqrt(-2*Math.log(random())),angle=2*Math.PI*random();
+    return [radius*Math.cos(angle),radius*Math.sin(angle)];
+  }
+  function renewNoise() {
+    noiseA=new Float64Array(5000);noiseB=new Float64Array(5000);
+    uniformA=new Float64Array(5000);uniformB=new Float64Array(5000);
+    for(let i=0;i<5000;i++){
+      const pair=normalPair();noiseA[i]=pair[0];noiseB[i]=pair[1];
+      uniformA[i]=random();uniformB[i]=random();
+    }
+  }
+  function logGamma(z) {
+    const c=[676.5203681218851,-1259.1392167224028,771.32342877765313,-176.61502916214059,12.507343278686905,-.13857109526572012,9.9843695780195716e-6,1.5056327351493116e-7];
+    z--;let result=.99999999999980993;
+    c.forEach((v,i)=>{result+=v/(z+i+1);});
+    const t=z+7.5;
+    return .5*Math.log(2*Math.PI)+(z+.5)*Math.log(t)-t+Math.log(result);
+  }
+  function betaFraction(a,b,x) {
+    const tiny=1e-300,safe=v=>Math.abs(v)<tiny?(v<0?-tiny:tiny):v;
+    const qab=a+b,qap=a+1,qam=a-1;
+    let c=1,d=1/safe(1-qab*x/qap),h=d;
+    for(let m=1;m<=500;m++){
+      const m2=2*m;
+      let aa=m*(b-m)*x/((qam+m2)*(a+m2));
+      d=1/safe(1+aa*d);c=safe(1+aa/c);h*=d*c;
+      aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2));
+      d=1/safe(1+aa*d);c=safe(1+aa/c);
+      const delta=d*c;h*=delta;
+      if(Math.abs(delta-1)<3e-14)break;
+    }
+    return h;
+  }
+  function betaI(x,a,b) {
+    if(x<=0)return 0;if(x>=1)return 1;
+    const factor=Math.exp(logGamma(a+b)-logGamma(a)-logGamma(b)+a*Math.log(x)+b*Math.log1p(-x));
+    return x<(a+1)/(a+b+2)?factor*betaFraction(a,b,x)/a:1-factor*betaFraction(b,a,1-x)/b;
+  }
+  function pValue(t,df) { return Math.max(0,Math.min(1,betaI(df/(df+t*t),df/2,.5))); }
+  function critical(df) {
+    if(critCache.has(df))return critCache.get(df);
+    let lo=0,hi=10;
+    for(let i=0;i<48;i++){
+      const mid=(lo+hi)/2;
+      if(pValue(mid,df)>.05)lo=mid;else hi=mid;
+    }
+    const value=(lo+hi)/2;critCache.set(df,value);return value;
+  }
+  function makeSample(fresh=false,keep=true) {
+    let meanA=0,meanB=0,m2A=0,m2B=0;
+    const a=keep?new Float64Array(state.n):null,b=keep?new Float64Array(state.n):null;
+    const probabilityB=data.whiteProbability+state.gap;
+    for(let i=0;i<state.n;i++){
+      let x,y;
+      if(state.binary){
+        x=(fresh?random():uniformA[i])<data.whiteProbability?1:0;
+        y=(fresh?random():uniformB[i])<probabilityB?1:0;
+      } else {
+        const pair=fresh?normalPair():[noiseA[i],noiseB[i]];
+        x=state.sd*pair[0];y=state.gap+state.sd*pair[1];
+      }
+      if(keep){a[i]=x;b[i]=y;}
+      const da=x-meanA,db=y-meanB;
+      meanA+=da/(i+1);meanB+=db/(i+1);
+      m2A+=da*(x-meanA);m2B+=db*(y-meanB);
+    }
+    const varA=m2A/(state.n-1),varB=m2B/(state.n-1),df=2*state.n-2;
+    const estimate=meanB-meanA,se=Math.sqrt(Math.max(0,(varA+varB)/state.n));
+    const valid=se>1e-12,t=valid?estimate/se:null;
+    const half=valid?critical(df)*se:null;
+    return {a,b,meanA,meanB,varA,varB,estimate,se,df,t,valid,
+      p:valid&&keep?pValue(t,df):null,low:valid?estimate-half:null,high:valid?estimate+half:null};
+  }
+  function add(tag,attrs={},value) {
+    const el=document.createElementNS(ns,tag);
+    Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,String(v)));
+    if(value!==undefined)el.textContent=value;
+    svg.appendChild(el);return el;
+  }
+  function text(x,y,value,attrs={}){return add('text',{x,y,...attrs},value);}
+  function line(x1,y1,x2,y2,attrs={}){return add('line',{x1,y1,x2,y2,...attrs});}
+  function stopRepeats(){
+    version++;$('repeat').disabled=false;
+    delete $('repeat-result').dataset.results;
+    $('repeat-result').textContent='Set the true gap to zero: how often will chance alone produce p < 0.05?';
+  }
+  function updateLabels() {
+    $('gap-value').textContent=formatted(state.gap);
+    $('gap').setAttribute('aria-valuetext',formatted(state.gap)+' true mean difference');
+    $('n-value').textContent=state.n.toLocaleString();
+    $('n-total').textContent=(2*state.n).toLocaleString()+' total observations';
+    $('n').setAttribute('aria-valuetext',state.n+' observations per group');
+    $('spread').disabled=state.binary;
+    $('spread-control').hidden=state.binary;
+    $('controls').classList.toggle('callback-mode',state.binary);
+    $('gap-label').textContent=state.binary?'True callback gap · Black − White':'True gap · B − A';
+    if(state.binary){
+      $('intro').textContent='Change the callback gap or sample size. Then draw a new sample.';
+      $('mode-note').textContent='Each simulated application gets a callback or does not. Spread follows the callback probabilities automatically.';
+    } else {
+      $('intro').textContent='Change the gap, the spread, or the sample size. Then draw a new sample.';
+      $('spread-value').textContent=state.sd.toFixed(2);
+      $('variance-value').textContent='Variance = '+(state.sd**2).toFixed(2);
+      $('mode-note').textContent='Continuous outcomes let you change spread independently of the means.';
+    }
+    $('sample-caption').textContent=state.binary?
+      'Sample '+state.draw+' · Callback rates from '+state.n.toLocaleString()+' simulated applications per group.':
+      'Sample '+state.draw+' · '+(state.n>200?'200 of '+state.n.toLocaleString()+' dots per group shown; all used.':'Each dot is one generated observation.')+' Tall marks show sample means.';
+  }
+  function drawChart() {
+    const r=current,width=svg.getBoundingClientRect().width,narrow=width<500;
+    svg.replaceChildren();svg.setAttribute('viewBox','0 0 '+width+' 333');
+    const caption=r.valid?'Sample gap '+formatted(r.estimate)+', t '+signed(r.t)+', p '+r.p.toPrecision(4)+'.':'Neither group varies; the t-test is unavailable.';
+    svg.setAttribute('aria-label',caption);add('title',{},caption);
+    const left=narrow?56:91,right=width-25,rows=[54,119],axis=155;
+    if(state.binary){
+      const barLeft=18,barRight=width-25;
+      const maximum=Math.max(.20,Math.ceil(Math.max(r.meanA,r.meanB)*1.10/.05)*.05);
+      const x=v=>barLeft+v/maximum*(barRight-barLeft);
+      [r.meanA,r.meanB].forEach((mean,g)=>{
+        const top=g?108:40,count=Math.round(mean*state.n);
+        text(barLeft,top-10,g?'Black-sounding names':'White-sounding names');
+        text(barRight,top-10,(mean*100).toFixed(2)+'%',{'text-anchor':'end'});
+        add('rect',{x:barLeft,y:top,width:x(mean)-barLeft,height:18,
+          fill:g?'var(--blue)':'var(--grey)','data-callback-group':g,'data-rate':mean,'data-count':count});
+        text(barLeft,top+34,count.toLocaleString()+' callbacks out of '+state.n.toLocaleString(),{class:'muted'});
+      });
+      line(barLeft,158,barRight,158,{stroke:'var(--line)'});
+      [0,maximum/2,maximum].forEach(v=>text(x(v),177,Number((v*100).toFixed(1))+'%',{
+        'text-anchor':v===0?'start':v===maximum?'end':'middle',class:'muted'}));
+      text((barLeft+barRight)/2,198,'Sample callback rate',{'text-anchor':'middle',class:'muted'});
+    } else {
+      let bound=6.5;
+      for(let i=0;i<state.n;i++)bound=Math.max(bound,Math.abs(r.a[i])+.3,Math.abs(r.b[i])+.3);
+      const x=v=>left+(v+bound)/(2*bound)*(right-left);
+      [r.a,r.b].forEach((values,g)=>{
+        const yy=rows[g],color=g?'var(--blue)':'var(--grey)';
+        text(12,yy+4,'Group '+(g?'B':'A'),{class:'muted'});
+        const shown=Math.min(200,state.n);
+        for(let i=0;i<shown;i++){
+          const index=Math.floor(i*state.n/shown),v=values[index];
+          const jitter=((index*0.61803398875+g*.293)%1-.5)*33;
+          add('circle',{cx:x(v),cy:yy+jitter,r:2.8,fill:color,opacity:.48,'data-group':g,'data-value':v});
+        }
+        const mean=g?r.meanB:r.meanA;
+        line(x(mean),yy-22,x(mean),yy+22,{stroke:g?'var(--blue)':'#485762','stroke-width':2.5});
+        text(Math.max(left+25,Math.min(right-25,x(mean))),yy-28,'mean '+mean.toFixed(2),{'text-anchor':'middle',class:'muted'});
+      });
+      line(left,axis,right,axis,{stroke:'var(--line)'});
+      (narrow?[-5,0,5]:[-5,-2.5,0,2.5,5]).forEach(v=>text(x(v),176,String(v).replace('-','−'),{'text-anchor':'middle',class:'muted'}));
+      text((left+right)/2,195,'Individual outcome value',{'text-anchor':'middle',class:'muted'});
+    }
+    text(12,225,state.binary?'Callback gap and its 95% interval':'Sample gap and its 95% interval',{class:'muted'});
+    if(r.valid){
+      const extent=Math.max(state.binary ? .08 : 2.8,Math.abs(r.low)*1.12,Math.abs(r.high)*1.12);
+      const gx=v=>left+(v+extent)/(2*extent)*(right-left),yy=258;
+      line(gx(0),235,gx(0),280,{stroke:'#a6afb5','stroke-dasharray':'3 4'});
+      line(gx(r.low),yy,gx(r.high),yy,{stroke:'var(--blue)','stroke-width':3});
+      [r.low,r.high].forEach(v=>line(gx(v),yy-5,gx(v),yy+5,{stroke:'var(--blue)','stroke-width':2}));
+      add('circle',{cx:gx(r.estimate),cy:yy,r:5,fill:'var(--blue)'});
+      [-extent,0,extent].forEach(v=>text(gx(v),300,state.binary?(v*100).toFixed(1):v.toFixed(1),{'text-anchor':'middle',class:'muted'}));
+      text((left+right)/2,326,state.binary?'Black − White (percentage points)':'Difference B − A (outcome units)',{'text-anchor':'middle',class:'muted'});
+      text(Math.max(left+35,Math.min(right-35,gx(r.estimate))),282,formatted(r.estimate),{'text-anchor':'middle'});
+    } else {
+      text(12,254,'No within-group variation.',{class:'muted'});
+      text(12,276,'Draw again or increase n.',{class:'muted'});
+    }
+    svg.dataset.summary=JSON.stringify({n:state.n,binary:state.binary,trueGap:state.gap,sd:state.sd,meanA:r.meanA,meanB:r.meanB,varA:r.varA,varB:r.varB,estimate:r.estimate,se:r.se,t:r.t,p:r.p,df:r.df,low:r.low,high:r.high,valid:r.valid});
+  }
+  function render() {
+    updateLabels();drawChart();
+    const r=current;
+    $('pvalue').textContent=r.valid?'p '+(r.p<.000001?'< 0.000001':'= '+(r.p<.001?r.p.toFixed(6):r.p.toFixed(3))):'p unavailable';
+    $('tvalue').textContent=r.valid?'t = '+signed(r.t):'';
+    $('sevalue').textContent='SE = '+(state.binary?(r.se*100).toFixed(3)+' pp':r.se.toFixed(3));
+    $('verdict').textContent=!r.valid?'This sample cannot support the t-test.':r.p<.05?'This sample’s interval excludes zero → significant at 5%.':'This sample’s interval includes zero → not significant at 5%.';
+    $('approximation-note').hidden=!state.binary;
+    $('formula-inputs').textContent='This sample: sA = '+Math.sqrt(r.varA).toFixed(4)+
+      ' · sB = '+Math.sqrt(r.varB).toFixed(4)+' · n = '+state.n.toLocaleString()+'.';
+    $('formula-calculation').textContent=r.valid?'t ≈ '+signed(r.estimate,4)+' ÷ '+r.se.toFixed(4)+' ≈ '+signed(r.t,3):
+      'SE = 0: division by zero, so t is unavailable.';
+    $('formula-units').textContent=(state.binary?'A = White-sounding; B = Black-sounding names. Formula values use the original 0/1 scale, not percentage points. ':'')+
+      'The sample SDs are estimated from the observations. Two-sided pooled test; df = '+r.df.toLocaleString()+'.';
+  }
+  function refresh() {
+    stopRepeats();current=makeSample();render();
+    clearTimeout(announceTimer);
+    announceTimer=setTimeout(()=>{$('announcement').textContent=$('pvalue').textContent+'. '+$('verdict').textContent;},250);
+  }
+  $('gap').addEventListener('input',event=>{state.gap=Number(event.target.value)/(state.binary?100:1);refresh();});
+  $('spread').addEventListener('input',event=>{state.sd=Number(event.target.value);refresh();});
+  $('n').addEventListener('input',event=>{state.n=sizes[Number(event.target.value)];refresh();});
+  $('draw').addEventListener('click',()=>{renewNoise();state.draw++;current=makeSample();render();});
+  $('callback').addEventListener('change',event=>{
+    state.binary=event.target.checked;
+    state.gap=state.binary?data.blackProbability-data.whiteProbability:.5;
+    state.n=state.binary?data.nPerGroup:50;state.sd=1;state.draw=1;
+    $('gap').min=state.binary?'-6':'-2';$('gap').max=state.binary?'6':'2';$('gap').step='any';
+    $('gap').value=state.gap*(state.binary?100:1);
+    $('n').value=sizes.indexOf(state.n);$('spread').value=state.sd;
+    renewNoise();refresh();
+  });
+  $('repeat').addEventListener('click',async()=>{
+    const token=++version;let significant=0,valid=0;
+    $('repeat').disabled=true;
+    for(let done=0;done<200;done++){
+      if(token!==version)return;
+      const r=makeSample(true,false);
+      if(r.valid){valid++;if(Math.abs(r.t)>critical(r.df))significant++;}
+      if((done+1)%10===0){
+        $('repeat-result').textContent='Drawing experiments… '+(done+1)+' / 200';
+        await new Promise(resolve=>setTimeout(resolve,0));
+      }
+    }
+    if(token!==version)return;
+    $('repeat').disabled=false;
+    const rate=valid?100*significant/valid:0,unavailable=200-valid;
+    $('repeat-result').textContent=significant+' / '+valid+' valid tests significant ('+rate.toFixed(1)+'%). '+
+      (Math.abs(state.gap)<1e-10?'True gap = 0: these are false positives.':'True gap ≠ 0: this is the estimated detection rate.')+
+      (unavailable?' '+unavailable+' tests unavailable due to zero variation.':'');
+    $('repeat-result').dataset.results=JSON.stringify({significant,valid,unavailable,trueGap:state.gap,n:state.n,sd:state.sd,binary:state.binary});
+  });
+  let oldWidth=0;
+  new ResizeObserver(entries=>{
+    const width=entries[0].contentRect.width;
+    if(Math.abs(width-oldWidth)>.5){oldWidth=width;if(current)drawChart();}
+  }).observe(document.querySelector('main'));
+  renewNoise();current=makeSample();render();
+})();
+</script>
+</body>
+</html>
