@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 3 · Why control for weight?</title>
+<style>
+  :root { color-scheme:light dark; --bg:light-dark(#fcfcfa,#191d20); --ink:light-dark(#253039,#e8ebed); --muted:light-dark(#606c75,#b1bbc2); --line:light-dark(#dbe0e3,#3f494f); --wash:light-dark(#edf0ef,#262e32); --dom:light-dark(#24768b,#78bed0); --foreign:light-dark(#a25935,#edb18d); }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  main { max-width:880px; margin:auto; padding:36px 32px 32px; }
+  h1 { margin:0 0 8px; font-size:36px; line-height:1.15; font-weight:500; letter-spacing:-.045em; }
+  h2 { font-size:18px; font-weight:500; letter-spacing:-.02em; margin:0 0 5px; }
+  p { margin:0; }
+  .eyebrow { color:var(--muted); font-size:12px; margin-bottom:7px; letter-spacing:.04em; }
+  .intro { color:var(--muted); font-size:15px; }
+  .modes { display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 22px; }
+  button { font:inherit; font-size:13px; border:1px solid transparent; border-radius:20px; color:var(--muted); background:var(--wash); padding:8px 14px; cursor:pointer; }
+  button[aria-pressed="true"] { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible { outline:2px solid var(--dom); outline-offset:4px; }
+  .step { display:inline-block; margin-right:7px; opacity:.65; font-variant-numeric:tabular-nums; }
+  code { font:12px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace; overflow-wrap:anywhere; }
+  .command { color:var(--muted); }
+  .view-options { display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px 18px; margin-top:13px; min-height:22px; }
+  #view-toggle { margin:0; padding:0; border:0; border-radius:0; background:none; color:var(--muted); text-decoration:underline; text-underline-offset:3px; }
+  [hidden] { display:none !important; }
+  .muted,.note { color:var(--muted); }
+  .note { font-size:12px; }
+  #chart-caption { font-size:16px; color:var(--ink); letter-spacing:-.015em; }
+  #chart { display:block; width:100%; height:340px; }
+  #chart[data-interactive="true"] { cursor:ew-resize; touch-action:none; }
+  #chart .price-label { paint-order:stroke; stroke:var(--bg); stroke-width:5px; stroke-linejoin:round; font-weight:500; }
+  .legend { display:flex; flex-wrap:wrap; gap:7px 18px; font-size:12px; margin:10px 0 4px; }
+  .key { display:inline-block; width:8px; height:8px; margin-right:6px; background:var(--dom); border-radius:50%; }
+  .key.foreign { background:var(--foreign); border-radius:0; }
+  .legend .muted { margin-left:auto; }
+  svg text { fill:var(--ink); font:12px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  svg .muted { fill:var(--muted); }
+  #model-note { margin-top:11px; font-size:14px; }
+  .weight-heading { display:flex; justify-content:space-between; flex-wrap:wrap; gap:5px 18px; font-size:14px; margin-top:5px; }
+  .weight-heading output { font-variant-numeric:tabular-nums; }
+  #price-gap { font-weight:500; }
+  #weight { display:block; width:100%; height:28px; margin:5px 0; accent-color:var(--ink); }
+  .slider-ends { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); }
+  .weight-hint { font-size:12px; color:var(--muted); margin-top:4px; }
+  #weight-imbalance { margin-top:16px; }
+  #weight-means { display:block; width:100%; height:88px; }
+  .prediction { margin-top:15px; padding:16px 0 0; border-top:1px solid var(--line); }
+  .prediction h2 { font-size:16px; }
+  .prediction p { font-size:14px; }
+  .choices { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
+  .choices button { border-color:var(--line); background:transparent; color:var(--ink); }
+  .choices button[aria-pressed="true"] { background:var(--ink); color:var(--bg); }
+  #prediction-feedback { margin-top:10px; font-size:13px; color:var(--muted); }
+  section { margin-top:28px; padding-top:23px; border-top:1px solid var(--line); }
+  figure { margin:0; min-width:0; }
+  .dag-row { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:18px; }
+  .dag-title { font-size:14px; text-align:center; font-weight:500; }
+  .dag { display:block; width:100%; max-width:440px; height:230px; margin:8px auto 0; }
+  .dag .node-name { font-size:14px; font-weight:500; }
+  .dag .node-name.selected { fill:var(--bg); }
+  .dag .edge-label { paint-order:stroke; stroke:var(--bg); stroke-width:5px; stroke-linejoin:round; }
+  figcaption { font-size:12px; text-align:center; color:var(--muted); }
+  #story { font-size:14px; }
+  details { font-size:12px; margin-top:17px; color:var(--muted); }
+  summary { cursor:pointer; width:fit-content; }
+  details p { margin:8px 0; }
+  a { color:inherit; text-underline-offset:3px; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+  @media(max-width:600px) {
+    main { padding:23px 18px; }
+    h1 { font-size:29px; }
+    .modes { gap:6px; }
+    .modes button { flex:1 1 auto; padding:9px 9px; font-size:12px; }
+    .step { margin-right:4px; }
+    .legend .muted { flex-basis:100%; margin-left:0; }
+    .dag-row { grid-template-columns:1fr; gap:22px; }
+  }
+  @media(pointer:coarse) { button { min-height:44px; } #view-toggle { min-height:44px; } #weight { height:44px; } }
+  @media(prefers-reduced-motion:no-preference) { .dag path,.dag circle { transition:opacity .18s,fill .18s; } }
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">WEEK 3 · QUESTION 1 · 74 CARS</p>
+  <h1>Are foreign cars more expensive?</h1>
+  <p class="intro">Different groups. Equal weight. Different slopes.</p>
+  <div class="modes" role="group" aria-label="Regression comparison">
+    <button type="button" data-model="raw" aria-pressed="true"><span class="step">01</span>As observed</button>
+    <button type="button" data-model="adjusted" aria-pressed="false"><span class="step">02</span>Same weight</button>
+    <button type="button" data-model="interaction" aria-pressed="false"><span class="step">03</span>Interaction</button>
+  </div>
+  <p class="note" id="chart-caption"></p>
+  <div class="legend"><span><i class="key" aria-hidden="true"></i>Domestic</span><span><i class="key foreign" aria-hidden="true"></i>Foreign</span><span class="muted">Solid = fit · Dashed edges = 95% uncertainty</span></div>
+  <svg id="chart" role="img" aria-label="All 74 cars, coloured by origin, with regression fits and confidence bands."></svg>
+  <div id="weight-control" hidden>
+    <div class="weight-heading"><label for="weight">Both cars at <output id="weight-value" for="weight">3,000 lb</output></label><span id="price-gap"></span></div>
+    <input type="range" id="weight" min="1800" max="3420" step="10" value="3000" aria-label="Common weight for comparing predicted prices">
+    <div class="slider-ends"><span>1,800 lb</span><span>3,420 lb</span></div>
+    <p class="weight-hint">Drag the line or use the slider. Prices are model predictions, not two selected cars.</p>
+  </div>
+  <p id="model-note"></p>
+  <p id="prediction-feedback" hidden></p>
+  <div class="view-options"><p class="command"><code id="command"></code></p><button type="button" id="view-toggle" aria-pressed="false" hidden>Show residual view</button></div>
+  <div id="weight-imbalance">
+    <p class="note">But the groups do not have the same average weight.</p>
+    <svg id="weight-means" role="img" aria-label="Average weight: foreign cars 2,316 pounds; domestic cars 3,317 pounds. Foreign cars are about 1,001 pounds lighter."></svg>
+  </div>
+  <div class="prediction" id="prediction-question">
+    <h2>Before you control: make a prediction.</h2>
+    <p>Foreign cars are lighter; heavier cars tend to cost more. At equal weight, will the foreign–domestic price gap be…</p>
+    <div class="choices" role="group" aria-label="Predict what controlling for weight does to the price gap">
+      <button type="button" data-prediction="larger" aria-pressed="false">Larger</button>
+      <button type="button" data-prediction="same" aria-pressed="false">About the same</button>
+      <button type="button" data-prediction="smaller" aria-pressed="false">Smaller</button>
+    </div>
+  </div>
+  <p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+  <section aria-labelledby="dag-heading">
+    <h2 id="dag-heading">Why does weight matter?</h2>
+    <p id="story">Foreign goes with lighter; heavier goes with pricier. Those two associations mask part of the same-weight price gap.</p>
+    <div class="dag-row">
+      <figure>
+        <p class="dag-title">Without weight control</p>
+        <svg class="dag" id="dag-without" role="img" aria-label="Association diagram without weight control: foreign origin is associated with lower weight, and greater weight with higher price. Connections do not indicate causal directions."></svg>
+        <figcaption>Different average weights.<br>The raw comparison mixes both associations.</figcaption>
+      </figure>
+      <figure>
+        <p class="dag-title">With weight control</p>
+        <svg class="dag" id="dag-with" role="img" aria-label="Association diagram with weight controlled: compare domestic and foreign prices at the same weight. Weight-related associations are accounted for statistically, not erased from reality."></svg>
+        <figcaption>Compare at the same weight.<br>The weight difference is accounted for.</figcaption>
+      </figure>
+    </div>
+    <p class="note" style="margin-top:15px">These are association diagrams, not causal DAGs. A control changes the comparison—not the cars. It does not by itself establish cause and effect.</p>
+  </section>
+
+  <details>
+    <summary>How the comparison is calculated</summary>
+    <p>The first model is price = a + b × foreign. Domestic = 0, foreign = 1, so b is the difference between group mean prices.</p>
+    <p>“Same weight” fits price = a + b × foreign + c × weight. On the original axes, the domestic line is a + c × weight; the foreign line is a + b + c × weight. Their common slope is c, and their vertical gap is b. Comparing the lines at one weight is a same-weight comparison. These are two lines from one regression, not separate regressions.</p>
+    <p>“Interaction” adds d × foreign × weight. The domestic slope remains c; the foreign slope becomes c + d. Panels 2 and 3 use the same original axes, scale, and dots: adding the interaction lets the lines tilt differently. The interaction fit equals separate within-group regressions.</p>
+    <p>“Show residual view” under “Same weight” displays exactly the same controlled model in another way. Regress price on weight and an intercept, retaining its residuals; separately do the same for foreign. Plot the price residuals against the foreign residuals. The line through zero has exactly the foreign coefficient b from the full controlled model (the Frisch–Waugh–Lovell result). On the original axes b is a vertical gap; on the residual axes b is the slope.</p>
+    <p>Residual means “observed minus predicted from weight alone”. The residual of foreign is no longer 0 or 1; it can be negative. Colours still represent actual origin, and all 74 cars remain. The residual plot uses different axes and scales; compare numerical coefficients, not angles. Returning to “Same weight” selects the original axes to keep its transition to “Interaction” consistent.</p>
+    <p>Dashed edges on the original axes are pointwise 95% confidence intervals for the fitted mean, not prediction intervals for individual cars or simultaneous bands. In the residual view they trace the full model’s 95% slope interval through the origin: y = (b ± t × SE(b))x. This slope-uncertainty envelope necessarily narrows to zero at x = 0; it is not a prediction band.</p>
+    <p>All estimates, p-values and confidence intervals use all 74 cars and HC1 robust covariance matrices with the original model’s residual degrees of freedom (72, 71, and 70). In particular, the residual view uses uncertainty from the full controlled regression, not a naïve refit with the wrong degrees of freedom. Interaction bands also use the combined model’s covariance matrix.</p>
+    <p>Do not infer significance from overlap between fitted-line bands. The foreign coefficient is $312 without weight control (p = 0.658) and $3,637 with weight control (p &lt; 0.001). The interaction tests the difference in slopes (p = 0.002). “Not significant” means insufficient evidence of a nonzero coefficient, not proof of no difference.</p>
+    <p>In the first view, horizontal jitter separates overlapping dots; it does not affect the regression. The line between 0 and 1 is visual interpolation between group means—there are no intermediate-origin cars. On price–weight axes, each line and its band stop at that group’s observed weight range.</p>
+    <p>In these data, corr(foreign, weight) = −0.593 and corr(weight, price) = +0.539. The algebra of the omitted-variable comparison gives: raw origin gap = same-weight origin gap + weight coefficient × difference in group mean weights. Here, $312 ≈ $3,637 + $3.321 × (−1,001 lb). This identity explains the shift without establishing causality.</p>
+    <p>The undirected diagrams show associations, not a causal model. Their faded connections indicate relationships accounted for by weight adjustment, not associations that vanish in the original data. Calling weight a causal confounder would require additional assumptions. The exercise demonstrates statistical adjustment.</p>
+    <p>The draggable comparison is restricted to the overlap of observed weight ranges (1,800–3,420 lb). Overlap does not guarantee many cars at each weight. Moving the line reads predictions from the same fitted model; it does not change the sample or refit the regression. Both original-axis models share the same plotting scale.</p>
+    <p>Based on the Week 3 car-price exercise using Stata’s auto dataset. Course materials are available separately through KEATS. The demo works offline.</p>
+  </details>
+</main>
+<script id="data" type="application/json">
+[["AMC Concord",4099,2930,0],["AMC Pacer",4749,3350,0],["AMC Spirit",3799,2640,0],["Buick Century",4816,3250,0],["Buick Electra",7827,4080,0],["Buick LeSabre",5788,3670,0],["Buick Opel",4453,2230,0],["Buick Regal",5189,3280,0],["Buick Riviera",10372,3880,0],["Buick Skylark",4082,3400,0],["Cad. Deville",11385,4330,0],["Cad. Eldorado",14500,3900,0],["Cad. Seville",15906,4290,0],["Chev. Chevette",3299,2110,0],["Chev. Impala",5705,3690,0],["Chev. Malibu",4504,3180,0],["Chev. Monte Carlo",5104,3220,0],["Chev. Monza",3667,2750,0],["Chev. Nova",3955,3430,0],["Dodge Colt",3984,2120,0],["Dodge Diplomat",4010,3600,0],["Dodge Magnum",5886,3600,0],["Dodge St. Regis",6342,3740,0],["Ford Fiesta",4389,1800,0],["Ford Mustang",4187,2650,0],["Linc. Continental",11497,4840,0],["Linc. Mark V",13594,4720,0],["Linc. Versailles",13466,3830,0],["Merc. Bobcat",3829,2580,0],["Merc. Cougar",5379,4060,0],["Merc. Marquis",6165,3720,0],["Merc. Monarch",4516,3370,0],["Merc. XR-7",6303,4130,0],["Merc. Zephyr",3291,2830,0],["Olds 98",8814,4060,0],["Olds Cutl Supr",5172,3310,0],["Olds Cutlass",4733,3300,0],["Olds Delta 88",4890,3690,0],["Olds Omega",4181,3370,0],["Olds Starfire",4195,2730,0],["Olds Toronado",10371,4030,0],["Plym. Arrow",4647,3260,0],["Plym. Champ",4425,1800,0],["Plym. Horizon",4482,2200,0],["Plym. Sapporo",6486,2520,0],["Plym. Volare",4060,3330,0],["Pont. Catalina",5798,3700,0],["Pont. Firebird",4934,3470,0],["Pont. Grand Prix",5222,3210,0],["Pont. Le Mans",4723,3200,0],["Pont. Phoenix",4424,3420,0],["Pont. Sunbird",4172,2690,0],["Audi 5000",9690,2830,1],["Audi Fox",6295,2070,1],["BMW 320i",9735,2650,1],["Datsun 200",6229,2370,1],["Datsun 210",4589,2020,1],["Datsun 510",5079,2280,1],["Datsun 810",8129,2750,1],["Fiat Strada",4296,2130,1],["Honda Accord",5799,2240,1],["Honda Civic",4499,1760,1],["Mazda GLC",3995,1980,1],["Peugeot 604",12990,3420,1],["Renault Le Car",3895,1830,1],["Subaru",3798,2050,1],["Toyota Celica",5899,2410,1],["Toyota Corolla",3748,2200,1],["Toyota Corona",5719,2670,1],["VW Dasher",7140,2160,1],["VW Diesel",5397,2040,1],["VW Rabbit",4697,1930,1],["VW Scirocco",6850,1990,1],["Volvo 260",11995,3170,1]]
+</script>
+<script id="estimates" type="application/json">
+{"raw":{"beta":[6072.423076923082,312.2587412587424],"cov":[[185940.66019082227,-185940.6601908221],[-185940.6601908221,492497.06931564445]],"df":72,"tcrit":1.9934635666618716,"p":0.6576895312217548,"ci":[-1086.7168204039083,1711.2343029213932]},"adjusted":{"beta":[-4942.8439535986345,3637.001295877855,3.3207367707523177],"cov":[[2539763.6065815897,-814606.050670419,-783.4561110770719],[-814606.050670419,413646.7763944049,228.99344208763668],[-783.4561110770718,228.9934420876367,0.25103328073381975]],"df":71,"tcrit":1.993943367845625,"p":3.04475113761822e-7,"ci":[2354.5890946606096,4919.4134970951]},"interaction":{"beta":[-3861.7189894763933,-2171.596763116001,2.9948135396412643,2.367226628308083],"cov":[[2810086.833682685,-2810086.833682184,-895.3738000249173,895.3738000246921],[-2810086.833682184,4278111.306835774,895.3738000249175,-1507.0295358412518],[-895.3738000249173,895.3738000249175,0.2939869981866512,-0.29398699818664603],[895.3738000246922,-1507.0295358412518,-0.293986998186646,0.5611871803399746]],"df":70,"tcrit":1.994437111771186,"p":0.0023308317075379603,"ci":[0.8731453716605044,3.8613078849556617]},"priceOnWeight":[-6.707353351664642,2.0440625856964885],"foreignOnWeight":[1.3571995714823188,-0.0003510238466241118]}
+</script>
+<script>
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),ns='http://www.w3.org/2000/svg';
+  const cars=JSON.parse($('data').textContent),models=JSON.parse($('estimates').textContent);
+  const groups=[0,1].map(g=>cars.filter(d=>d[3]===g));
+  const ranges=groups.map(rows=>[Math.min(...rows.map(d=>d[2])),Math.max(...rows.map(d=>d[2]))]);
+  const meanWeights=groups.map(rows=>rows.reduce((sum,d)=>sum+d[2],0)/rows.length);
+  const overlap=[Math.max(...ranges.map(r=>r[0])),Math.min(...ranges.map(r=>r[1]))];
+  const colors=['var(--dom)','var(--foreign)'];
+  const state={model:'raw',view:'original',weight:3000,prediction:null};let announceTimer,plotGeometry=null,dragging=false;
+  const isResidual=()=>state.model==='adjusted'&&state.view==='residual';
+  const dollars=v=>'$'+Math.round(v).toLocaleString('en-US');
+  const signedDollars=v=>(v<0?'−':'+')+dollars(Math.abs(v));
+  const dot=(a,b)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
+  const quadratic=(v,cov)=>v.reduce((sum,a,i)=>sum+a*dot(cov[i],v),0);
+  const grid=(lo,hi,n=80)=>Array.from({length:n+1},(_,i)=>lo+(hi-lo)*i/n);
+  function fitted(x,g=null,model=state.model,residual=isResidual()){
+    const m=models[model];
+    if(residual){
+      const y=m.beta[1]*x,margin=m.tcrit*Math.sqrt(m.cov[1][1])*Math.abs(x);
+      return {x,y,lo:y-margin,hi:y+margin};
+    }
+    const v=model==='raw'?[1,x]:model==='adjusted'?[1,g,x]:[1,g,x,g*x];
+    const y=dot(v,m.beta),margin=m.tcrit*Math.sqrt(Math.max(0,quadratic(v,m.cov)));
+    return {x,y,lo:y-margin,hi:y+margin};
+  }
+  function plotData(){
+    const residual=isResidual();
+    const points=cars.map(([name,price,weight,g],i)=>{
+      const x=residual?g-dot(models.foreignOnWeight,[1,weight]):state.model==='raw'?g:weight;
+      const y=residual?price-dot(models.priceOnWeight,[1,weight]):price;
+      // Deterministic display-only jitter. Fits always use the actual 0/1 indicator.
+      const displayX=x+(state.model==='raw'?(((i*37)%73)/72-.5)*.09:0);
+      return {name,price,weight,g,x,y,displayX};
+    });
+    let series;
+    if(state.model!=='raw'&&!residual)series=[0,1].map(g=>({g,samples:grid(...ranges[g]).map(x=>fitted(x,g))}));
+    else {
+      const xs=state.model==='raw'?grid(0,1):[...new Set([...grid(Math.min(...points.map(d=>d.x)),Math.max(...points.map(d=>d.x))),0])].sort((a,b)=>a-b);
+      series=[{g:null,samples:xs.map(x=>fitted(x))}];
+    }
+    return {points,series};
+  }
+  function add(svg,tag,attrs={},value){
+    const el=document.createElementNS(ns,tag);
+    Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,String(v)));
+    if(value!==undefined)el.textContent=value;
+    svg.appendChild(el);return el;
+  }
+  const text=(svg,x,y,value,attrs={})=>add(svg,'text',{x,y,...attrs},value);
+  const line=(svg,x1,y1,x2,y2,attrs={})=>add(svg,'line',{x1,y1,x2,y2,...attrs});
+  function marker(svg,x,y,g,r,attrs={}){
+    return g?add(svg,'rect',{x:x-r,y:y-r,width:2*r,height:2*r,fill:colors[g],...attrs}):add(svg,'circle',{cx:x,cy:y,r,fill:colors[g],...attrs});
+  }
+  function chart(){
+    const svg=$('chart'),width=svg.getBoundingClientRect().width,height=340,residual=isResidual(),raw=state.model==='raw';
+    const previousModel=svg.dataset.plotModel,previousResidual=svg.dataset.residual;
+    const previousPaths=new Map([...svg.querySelectorAll('[data-fitted-line]')].map(el=>[el.dataset.fittedLine,el.getAttribute('d')]));
+    const animateFits=!matchMedia('(prefers-reduced-motion: reduce)').matches&&!raw&&!residual&&previousModel&&previousModel!=='raw'&&previousModel!==state.model&&previousResidual==='false';
+    svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
+    svg.dataset.plotModel=state.model;svg.dataset.residual=String(residual);svg.dataset.interactive=String(!raw&&!residual);
+    const {points,series}=plotData(),left=64,right=width-15,top=15,bottom=282;
+    const allY=[0,...points.map(d=>d.y),...series.flatMap(s=>s.samples.flatMap(d=>[d.lo,d.hi]))];
+    // The controlled and interaction views share exact original-axis limits.
+    if(!raw&&!residual)['adjusted','interaction'].forEach(model=>ranges.forEach((range,g)=>grid(...range).forEach(xx=>{const f=fitted(xx,g,model,false);allY.push(f.lo,f.hi);} )));
+    const low=Math.min(...allY),high=Math.max(...allY),yp=(high-low)*.09;
+    const yDomain=[low<0?low-yp:0,high+yp];
+    const minX=Math.min(...points.map(d=>d.x)),maxX=Math.max(...points.map(d=>d.x)),xp=(maxX-minX)*.1;
+    const xDomain=raw?[-.24,1.24]:[minX-xp,maxX+xp];
+    const x=v=>left+(v-xDomain[0])/(xDomain[1]-xDomain[0])*(right-left);
+    const y=v=>bottom-(v-yDomain[0])/(yDomain[1]-yDomain[0])*(bottom-top);
+    plotGeometry=!raw&&!residual?{left,right,top,bottom,xDomain}:null;
+    add(svg,'title',{},`${$('chart-caption').textContent}. All 74 cars keep their original group colour. ${$('model-note').textContent}`);
+    const defs=add(svg,'defs'),clip=add(defs,'clipPath',{id:'plot-clip'});
+    add(clip,'rect',{x:left,y:top,width:right-left,height:bottom-top});
+    const rough=(yDomain[1]-yDomain[0])/5,base=10**Math.floor(Math.log10(rough)),fraction=rough/base;
+    const step=base*(fraction<1.5?1:fraction<2.25?2:fraction<3.5?2.5:fraction<7.5?5:10);
+    for(let value=Math.ceil(yDomain[0]/step)*step;value<=yDomain[1];value+=step){
+      line(svg,left,y(value),right,y(value),{stroke:'var(--line)'});
+      text(svg,left-9,y(value)+4,value===0?'0':(value/1000)+'k',{'text-anchor':'end',class:'muted'});
+    }
+    const ticks=raw?[0,1]:residual?[-.5,0,.5]:[2000,3000,4000];
+    ticks.forEach(value=>text(svg,x(value),bottom+23,raw?(value?'1 · Foreign':'0 · Domestic'):value.toLocaleString('en-US'),{'text-anchor':'middle',class:'muted'}));
+    add(svg,'rect',{x:left,y:top,width:right-left,height:bottom-top,fill:'none',stroke:'var(--line)','data-chart-frame':''});
+    text(svg,(left+right)/2,334,raw?'Foreign indicator':residual?'Foreign, net of weight':'Weight (lb)',{'text-anchor':'middle',class:'axis-title','data-axis':'x'});
+    text(svg,16,(top+bottom)/2,residual?'Price, net of weight ($)':'Price (1978 US $)',{transform:`rotate(-90 16 ${(top+bottom)/2})`,'text-anchor':'middle',class:'axis-title','data-axis':'y'});
+    const layer=add(svg,'g',{'clip-path':'url(#plot-clip)'});
+    if(residual)line(layer,x(0),top,x(0),bottom,{stroke:'var(--line)'});
+    const path=(samples,key)=>samples.map((d,i)=>(i?'L':'M')+x(d.x)+' '+y(d[key])).join(' ');
+    series.forEach(s=>{
+      const color=s.g===null?'var(--ink)':colors[s.g];
+      const upper=path(s.samples,'hi'),lower=s.samples.slice().reverse().map(d=>'L'+x(d.x)+' '+y(d.lo)).join(' ');
+      add(layer,'path',{d:upper+' '+lower+' Z',fill:color,opacity:.08,'data-band':s.g??'all'});
+      ['lo','hi'].forEach(key=>add(layer,'path',{d:path(s.samples,key),fill:'none',stroke:color,'stroke-width':1,'stroke-dasharray':'4 4',opacity:.6,'data-ci-edge':key,'data-fit-group':s.g??'all'}));
+    });
+    points.forEach(d=>{
+      const point=marker(layer,x(d.displayX),y(d.y),d.g,width<480?2.8:3.6,{opacity:.52,'data-observation':d.name,'data-origin':d.g});
+      add(point,'title',{},`${d.name} (${d.g?'foreign':'domestic'}): ${dollars(d.price)}, ${d.weight.toLocaleString('en-US')} lb${residual?'; residual foreign '+d.x.toFixed(3)+', residual price '+signedDollars(d.y):''}`);
+    });
+    series.forEach(s=>{
+      const d=path(s.samples,'y'),key=String(s.g??'all');
+      const fit=add(layer,'path',{d,fill:'none',stroke:s.g===null?'var(--ink)':colors[s.g],'stroke-width':2.5,'data-fitted-line':key});
+      if(animateFits&&previousPaths.has(key))add(fit,'animate',{attributeName:'d',from:previousPaths.get(key),to:d,dur:'.25s',fill:'freeze'});
+    });
+    let comparison=null;
+    if(raw){
+      [0,1].forEach(g=>{
+        const value=fitted(g).y;
+        marker(layer,x(g),y(value),g,6,{stroke:'var(--bg)','stroke-width':2,'data-mean-group':g});
+        text(svg,x(g),y(value)+(g?-16:25),dollars(value),{'text-anchor':'middle',class:'price-label','data-mean-price':g});
+      });
+    }else if(!residual){
+      const predictions=[0,1].map(g=>fitted(state.weight,g).y),gx=x(state.weight);
+      line(layer,gx,top,gx,bottom,{stroke:'var(--muted)','stroke-width':1,'stroke-dasharray':'3 5',opacity:.65,'data-weight-guide':''});
+      line(layer,gx,y(predictions[0]),gx,y(predictions[1]),{stroke:'var(--ink)','stroke-width':2.5,'data-price-gap':''});
+      predictions.forEach((value,g)=>{
+        marker(layer,gx,y(value),g,6,{stroke:'var(--bg)','stroke-width':2,'data-predicted-group':g});
+        const onRight=right-gx>=75;
+        text(svg,gx+(onRight?12:-12),y(value)+4,dollars(value),{'text-anchor':onRight?'start':'end',class:'price-label','data-predicted-price':g});
+      });
+      add(svg,'circle',{cx:gx,cy:bottom,r:4,fill:'var(--ink)'});
+      comparison={weight:state.weight,domestic:predictions[0],foreign:predictions[1],gap:predictions[1]-predictions[0]};
+      add(layer,'rect',{x:left,y:top,width:right-left,height:bottom-top,fill:'transparent','data-chart-hit':'weight-drag'});
+    }
+    svg.dataset.summary=JSON.stringify({model:state.model,view:state.view,residual,n:cars.length,xDomain,yDomain,points,series,comparison});
+  }
+  function weightMeans(){
+    if($('weight-imbalance').hidden)return;
+    const svg=$('weight-means'),width=svg.getBoundingClientRect().width;
+    svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${width} 88`);
+    const domain=[Math.min(...meanWeights)-500,Math.max(...meanWeights)+500];
+    const x=w=>18+(w-domain[0])/(domain[1]-domain[0])*(width-36);
+    line(svg,18,43,width-18,43,{stroke:'var(--line)','stroke-width':1});
+    line(svg,x(meanWeights[1]),43,x(meanWeights[0]),43,{stroke:'var(--muted)','stroke-width':1.5});
+    [0,1].forEach(g=>{
+      marker(svg,x(meanWeights[g]),43,g,5,{'data-average-weight':g,'data-value':meanWeights[g]});
+      text(svg,x(meanWeights[g]),g?67:19,(g?'Foreign':'Domestic')+' · '+Math.round(meanWeights[g]).toLocaleString('en-US')+' lb',{'text-anchor':'middle'});
+    });
+    svg.dataset.means=JSON.stringify(meanWeights);
+  }
+  function dag(id,controlled){
+    const svg=$(id),width=svg.getBoundingClientRect().width;
+    svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${width} 230`);
+    const nodes={Origin:{x:40,y:177},Price:{x:width-40,y:177},Weight:{x:width/2,y:37}};
+    function edge(from,to,indirect){
+      const a=nodes[from],b=nodes[to],dx=b.x-a.x,dy=b.y-a.y,length=Math.hypot(dx,dy),pad=37;
+      add(svg,'path',{d:`M ${a.x+dx/length*pad} ${a.y+dy/length*pad} L ${b.x-dx/length*pad} ${b.y-dy/length*pad}`,fill:'none',stroke:'var(--muted)','stroke-width':1.5,opacity:controlled&&indirect?.25:.85,'data-association':from+'-'+to});
+    }
+    edge('Origin','Weight',true);edge('Weight','Price',true);edge('Origin','Price',false);
+    for(const [name,point] of Object.entries(nodes)){
+      const selected=name==='Weight'&&controlled;
+      if(selected)add(svg,'circle',{cx:point.x,cy:point.y,r:35,fill:'none',stroke:'var(--muted)','stroke-width':1,'data-conditioned':'Weight'});
+      add(svg,'circle',{cx:point.x,cy:point.y,r:30,fill:selected?'var(--ink)':'var(--wash)',stroke:selected?'var(--ink)':'var(--line)','stroke-width':1,'data-dag-node':name});
+      text(svg,point.x,point.y+5,name,{'text-anchor':'middle',class:'node-name'+(selected?' selected':'')});
+    }
+    const leftLabel=(40+width/2)/2,rightLabel=width-leftLabel;
+    text(svg,leftLabel,103,'Foreign: lighter',{'text-anchor':'middle',class:'edge-label muted'});
+    text(svg,rightLabel,103,'Heavier: pricier',{'text-anchor':'middle',class:'edge-label muted'});
+    text(svg,width/2,216,controlled?'Same-weight comparison':'Raw comparison',{'text-anchor':'middle',class:'muted'});
+    svg.dataset.conditioned=String(controlled);
+  }
+  function render(){
+    const m=models[state.model],adjusted=state.model==='adjusted',interaction=state.model==='interaction';
+    document.querySelectorAll('[data-model]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.model===state.model)));
+    $('command').textContent=interaction?'reg price c.weight##i.foreign, vce(robust)':adjusted?'reg price foreign weight, vce(robust)':'reg price foreign, vce(robust)';
+    $('view-toggle').hidden=!adjusted;
+    $('view-toggle').textContent=isResidual()?'Return to original axes':'Show residual view';
+    $('view-toggle').setAttribute('aria-pressed',String(isResidual()));
+    const interactive=state.model!=='raw'&&!isResidual();
+    $('weight-control').hidden=!interactive;
+    $('weight-imbalance').hidden=state.model!=='raw';
+    $('prediction-question').hidden=state.model!=='raw';
+    $('weight').value=state.weight;
+    $('weight-value').textContent=state.weight.toLocaleString('en-US')+' lb';
+    $('weight').setAttribute('aria-valuetext',state.weight.toLocaleString('en-US')+' pounds for both groups');
+    if(interactive)$('price-gap').textContent='Foreign − domestic: '+signedDollars(fitted(state.weight,1).y-fitted(state.weight,0).y);
+    $('chart-caption').textContent=interaction?'What if the price gap depends on weight?':adjusted?(isResidual()?'The same controlled model, on residual axes.':'Compare the two groups at exactly the same weight.'):'Start with the groups as we observe them.';
+    $('model-note').textContent=interaction?'Move the line. Different slopes mean the gap changes with weight. The cars and axes are unchanged from step 2.':adjusted?(isResidual()?'Weight has been removed from both axes; colours still show each car’s actual origin. The slope here is the same origin coefficient as the vertical gap on the original axes.':'Move the line. Both predicted prices change, but their '+dollars(m.beta[1])+' gap stays constant: the model imposes parallel slopes.'):'The observed average price gap is just '+dollars(m.beta[1])+'. This comparison has not yet accounted for the groups’ different weights.';
+    $('prediction-feedback').hidden=!(adjusted&&!isResidual()&&state.prediction);
+    if(state.prediction){
+      const choice={larger:'a larger gap',same:'about the same gap',smaller:'a smaller gap'}[state.prediction];
+      $('prediction-feedback').textContent='Your prediction: '+choice+'. In these data, the fitted gap grows from '+dollars(models.raw.beta[1])+' to '+dollars(models.adjusted.beta[1])+'.';
+    }
+    document.querySelectorAll('[data-prediction]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.prediction===state.prediction)));
+    chart();weightMeans();dag('dag-without',false);dag('dag-with',true);
+    clearTimeout(announceTimer);announceTimer=setTimeout(()=>{$('announcement').textContent=$('chart-caption').textContent+' '+(interactive?$('weight-value').textContent+'. '+$('price-gap').textContent:$('model-note').textContent);},180);
+  }
+  document.querySelectorAll('[data-model]').forEach(el=>el.addEventListener('click',()=>{state.model=el.dataset.model;state.view='original';render();}));
+  $('view-toggle').addEventListener('click',()=>{state.view=isResidual()?'original':'residual';render();});
+  document.querySelectorAll('[data-prediction]').forEach(el=>el.addEventListener('click',()=>{state.prediction=el.dataset.prediction;state.model='adjusted';state.view='original';state.weight=3000;render();}));
+  function setWeight(value){
+    const next=Math.max(overlap[0],Math.min(overlap[1],Math.round(value/10)*10));
+    if(state.weight!==next){state.weight=next;render();}
+  }
+  $('weight').addEventListener('input',event=>setWeight(Number(event.target.value)));
+  function pointerWeight(event){
+    if(!plotGeometry)return;
+    const px=event.clientX-$('chart').getBoundingClientRect().left,g=plotGeometry;
+    setWeight(g.xDomain[0]+(px-g.left)/(g.right-g.left)*(g.xDomain[1]-g.xDomain[0]));
+  }
+  $('chart').addEventListener('pointerdown',event=>{
+    if(!plotGeometry||event.button!==0)return;
+    const rect=$('chart').getBoundingClientRect(),px=event.clientX-rect.left,py=event.clientY-rect.top,g=plotGeometry;
+    if(px<g.left||px>g.right||py<g.top||py>g.bottom)return;
+    dragging=true;$('chart').setPointerCapture(event.pointerId);event.preventDefault();pointerWeight(event);
+  });
+  $('chart').addEventListener('pointermove',event=>{if(dragging)pointerWeight(event);});
+  ['pointerup','pointercancel','lostpointercapture'].forEach(type=>$('chart').addEventListener(type,()=>{dragging=false;}));
+  new ResizeObserver(()=>{chart();weightMeans();dag('dag-without',false);dag('dag-with',true);}).observe(document.querySelector('main'));
+  render();
+})();
+</script>
+</body>
+</html>
