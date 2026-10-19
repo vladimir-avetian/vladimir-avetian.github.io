@@ -70,7 +70,9 @@ main { padding-top: 46px; }
 .profile-heading { grid-column: 2; grid-row: 1; }
 h1, h2, h3, p { margin: 0; }
 h1 { font-weight: 600; font-size: var(--text-name); line-height: 1.2; letter-spacing: -.5px; margin-bottom: 18px; }
-.portrait { grid-column: 1; grid-row: 1 / span 2; width: 100%; height: auto; display: block; border-radius: 3px; }
+.portrait { grid-column: 1; grid-row: 1 / span 2; width: 100%; margin: 0; }
+.portrait img { width: 100%; height: auto; display: block; border-radius: 3px; }
+.portrait figcaption { margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.4; font-style: italic; }
 .biography { grid-column: 2; grid-row: 2; }
 .biography > * + * { margin-top: 14px; }
 .research-fields, .interests { color: var(--ink); }
