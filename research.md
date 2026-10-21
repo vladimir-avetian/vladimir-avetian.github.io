@@ -21,7 +21,7 @@ redirect_from:
   [Working paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7059539).        
   **R&R at *Quarterly Journal of Economics***
   
-- Slavs Only: Open Xenophobia and Racial Disparities in Rental Housing _(with [Viktor Veterinarov](https://viktorveterinarov.github.io/))_,                              
+- Slavs Only: Overt Discrimination and Racial Disparities in Rental Housing _(with [Viktor Veterinarov](https://viktorveterinarov.github.io/))_,                              
   [Working paper](https://vladimir-avetian.github.io/pdfs/Slavs.pdf)                        
   **R&R at *Journal of Urban Economics***
 
